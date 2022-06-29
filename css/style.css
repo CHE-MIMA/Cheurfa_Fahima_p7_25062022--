@@ -58,3 +58,44 @@ button{
     height: 10px;
     margin-left: 20px;
 }
+#card-grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 40px;
+    margin-top: 40px;
+      
+}
+.card{
+ width: 450px;
+ height: 600px;
+ background-color: #E5E5E5;
+}
+.card_title_time{
+    display: flex;
+    justify-content: space-between;
+    margin-right: 20px;
+}
+.card_image{
+    width: 450px;
+    height:200px;
+    background-color: gray;
+
+}
+.card-title{
+    font-size: 20px;
+    font-weight: 600;
+    margin-top: 20px;
+    margin-left: 20px;
+
+}
+.card-time{
+    font-size: 20px;
+    font-weight: 700;
+    margin-top: 20px;
+}
+.card-description{
+    font-size: 16px;
+    font-weight: 400;
+    margin-top: 20px; 
+    margin-left: 20px;  
+}
