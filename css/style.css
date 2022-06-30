@@ -19,15 +19,7 @@ align-items: center;
     align-self: center;
     align-items: center;
     }
-.search{
-width: 100%;
-height: 70px;
-background-color: #E5E5E5;
-display: flex;
-justify-content: space-between;
-margin-bottom: 40px;
-margin-top: 40px;
-    }
+
 .formulaire-search{
 width: 100%;
 height: 70px;
@@ -36,13 +28,14 @@ background-color: #E5E5E5;
 padding-left: 20px;
 font-size: 22px;
 font-weight: 400;
+margin-bottom: 40px;
+margin-top: 40px;
     }
     .icon-search{
        width: 30px;
-       height: 30px;
-       margin-right: 20px;
-       margin-left: 20px;
-       margin-top: 20px;
+       height: 40px;
+       margin-left: 96%;
+       margin-top: -180px;
     }
     #btn-success{
         background-color: #68D9A4;
@@ -73,29 +66,44 @@ button{
 .card_title_time{
     display: flex;
     justify-content: space-between;
-    margin-right: 20px;
+    margin-right: 10px;
 }
 .card_image{
     width: 450px;
     height:200px;
-    background-color: gray;
+    background-color: #C7BEBE;
 
 }
 .card-title{
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 600;
     margin-top: 20px;
     margin-left: 20px;
+    text-overflow: ellipsis;
+    overflow:hidden;
+    
 
 }
 .card-time{
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 700;
     margin-top: 20px;
 }
 .card-description{
-    font-size: 16px;
+    font-size: 15px;
     font-weight: 400;
     margin-top: 20px; 
-    margin-left: 20px;  
+    margin-left: 20px; 
+    text-overflow: ellipsis; 
+}
+.icon-time{
+    width: 20px;
+    height: 20px;
+    margin-top:20px;
+    margin-right: 10px;
+}
+.div-time{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
