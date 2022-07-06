@@ -6,6 +6,13 @@ for (let index = 0; index < recipes.length; index++) {
     const ingredientsTb = recipes[index].ingredients;
 
     console.log(ingredientsTb);
+ 
+
+// ingredientsTb.forEach(element => {
+//     console.log(ingredientsTb[index].ingredient);
+//  });
+   
+   
     const divCard = document.createElement("div")
     divCard.classList.add("card")
     const img = document.createElement("div")
@@ -25,17 +32,29 @@ for (let index = 0; index < recipes.length; index++) {
      time.classList.add("card-time")
      
     //  recipes.forEach(ingredient=> {
+        const description = document.createElement("span");
+        description.textContent = recipes[index].description;
+        description.classList.add("card-description")
+   
+
+    const ingredientsDiv = document.createElement("div");
+    ingredientsDiv.classList.add("div-ingredients")
+    const titleQantityDiv = document.createElement("div");
+    titleQantityDiv.classList.add("div-title_quantity")
+    for (let index = 0; index < ingredientsTb.length; index++){
+        console.log(ingredientsTb[index].ingredient);
+        const ingredt = document.createElement("h3")
+         ingredt.textContent= ingredientsTb[index].ingredient+":";
+         ingredt.classList.add("title-ingredients")
         
-    
-    const ingredients = document.createElement("div");
-    ingredients.classList.add("card-ingredients")
-     const ingredt = document.createElement("h3")
-     ingredt.textContent= ingredientsTb.ingredient; 
-     
+            console.log(ingredientsTb[index].quantity);
+            const quantityDom = document.createElement("h4")
+            quantityDom.textContent= ingredientsTb[index].quantity;
+            quantityDom.classList.add("quantity-ingredients")
+         
+      
     //  ingredient.textContent = recipes[index];
-     const description = document.createElement("span");
-     description.textContent = recipes[index].description;
-     description.classList.add("card-description")
+  
     // });
 main.appendChild(divCard);
  divCard.appendChild(img);
@@ -44,8 +63,14 @@ main.appendChild(divCard);
  divTitle.appendChild(divTime)
  divTime.appendChild(iconTime);  
  divTime.appendChild(time);
- divCard.appendChild(ingredt);
- divCard.appendChild(description);
+ divCard.appendChild(ingredientsDiv);
+ ingredientsDiv.appendChild( titleQantityDiv)
+ titleQantityDiv.appendChild(ingredt)
+ titleQantityDiv.appendChild(quantityDom)
+ ingredientsDiv.appendChild(description);
      
- 
+
+        }
+    
 }
+// document.addEventListener("keyup", "onchange")

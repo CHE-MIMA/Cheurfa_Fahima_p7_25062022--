@@ -62,6 +62,8 @@ button{
  width: 450px;
  height: 600px;
  background-color: #E5E5E5;
+ border-radius: 5px;
+ border: none;
 }
 .card_title_time{
     display: flex;
@@ -72,6 +74,7 @@ button{
     width: 450px;
     height:200px;
     background-color: #C7BEBE;
+    border-radius: 5px 5px 0px 0px;
 
 }
 .card-title{
@@ -90,8 +93,8 @@ button{
     margin-top: 20px;
 }
 .card-description{
-    font-size: 15px;
-    font-weight: 400;
+    font-size: 12px;
+    font-weight: 600;
     margin-top: 20px; 
     margin-left: 20px; 
     text-overflow: ellipsis; 
@@ -106,4 +109,25 @@ button{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+}
+.title-ingredients{
+    font-size: 12px;
+    font-weight: 600;
+
+}
+.quantity-ingredients{
+    font-size: 12px;
+    margin-top: -20px; 
+    margin-left: 130px;
+    font-weight: 600; 
+}
+.div-title_quantity{
+display: flex;
+flex-direction: column;
+margin-top: 20px;
+margin-left: 30px;
+}
+.div-ingredients{
+    display: flex;
+      margin-right: 30px;
 }
