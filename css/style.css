@@ -60,7 +60,7 @@ button{
 }
 .card{
  width: 450px;
- height: 600px;
+ height: 620px;
  background-color: #E5E5E5;
  border-radius: 5px;
  border: none;
@@ -72,38 +72,36 @@ button{
 }
 .card_image{
     width: 450px;
-    height:200px;
+    height:220px;
     background-color: #C7BEBE;
     border-radius: 5px 5px 0px 0px;
 
 }
 .card-title{
-    font-size: 18px;
+    font-size: 17px;
     font-weight: 600;
     margin-top: 20px;
-    margin-left: 20px;
+    margin-left: 15px;
     text-overflow: ellipsis;
     overflow:hidden;
-    
-
 }
 .card-time{
-    font-size: 18px;
+    font-size: 17px;
     font-weight: 700;
     margin-top: 20px;
 }
 .card-description{
-    font-size: 12px;
+    font-size: 13px;
     font-weight: 600;
-    margin-top: 20px; 
-    margin-left: 20px; 
-    text-overflow: ellipsis; 
+    margin-top: 10px; 
+    width: 50%;
+    text-overflow: ellipsis;
 }
 .icon-time{
     width: 20px;
     height: 20px;
     margin-top:20px;
-    margin-right: 10px;
+    margin-right: 5px;
 }
 .div-time{
     display: flex;
@@ -111,23 +109,31 @@ button{
     justify-content: space-between;
 }
 .title-ingredients{
-    font-size: 12px;
-    font-weight: 600;
-
-}
-.quantity-ingredients{
-    font-size: 12px;
-    margin-top: -20px; 
-    margin-left: 130px;
-    font-weight: 600; 
-}
-.div-title_quantity{
-display: flex;
-flex-direction: column;
-margin-top: 20px;
-margin-left: 30px;
+    font-size: 13px;
+    font-weight: 700;
+    margin-right: 2px;
 }
 .div-ingredients{
     display: flex;
-      margin-right: 30px;
+      margin-right: 10px;
+
+}
+.quantity-ingredients{
+    font-size: 13px;
+    font-weight: 600;
+    margin-right: 1px;
+}
+.unit-ingredients{
+    font-size: 13px;
+    font-weight: 600; 
+}
+
+.div-title_quantity{
+margin-top: 10px;
+margin-left: 15px;
+margin-right: 20px;
+}
+.title_quantity{
+    display: flex;
+    flex-direction: row;
 }

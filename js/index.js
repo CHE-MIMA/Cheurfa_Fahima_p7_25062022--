@@ -28,7 +28,7 @@ for (let index = 0; index < recipes.length; index++) {
      iconTime.classList.add("icon-time");
      iconTime.setAttribute("src","icon-time.png");
      const time = document.createElement("h2")
-     time.textContent = recipes[index].time+" " +"min";
+     time.textContent = recipes[index].time+" "+"min";
      time.classList.add("card-time")
      
     //  recipes.forEach(ingredient=> {
@@ -41,16 +41,25 @@ for (let index = 0; index < recipes.length; index++) {
     ingredientsDiv.classList.add("div-ingredients")
     const titleQantityDiv = document.createElement("div");
     titleQantityDiv.classList.add("div-title_quantity")
+
     for (let index = 0; index < ingredientsTb.length; index++){
         console.log(ingredientsTb[index].ingredient);
+       
+        const titleQantity = document.createElement("div");
+        titleQantity.classList.add("title_quantity")
+
         const ingredt = document.createElement("h3")
-         ingredt.textContent= ingredientsTb[index].ingredient+":";
+         ingredt.textContent= ingredientsTb[index].ingredient+":"+" ";
          ingredt.classList.add("title-ingredients")
-        
-            console.log(ingredientsTb[index].quantity);
-            const quantityDom = document.createElement("h4")
-            quantityDom.textContent= ingredientsTb[index].quantity;
-            quantityDom.classList.add("quantity-ingredients")
+         titleQantity.appendChild(ingredt)
+         const quantity = document.createElement("h4")
+         quantity.textContent= ingredientsTb[index].quantity;
+         quantity.classList.add("quantity-ingredients")
+         titleQantity.appendChild(quantity)
+         const unit = document.createElement("h5")
+         unit.textContent= ingredientsTb[index].unit;
+         unit.classList.add("unit-ingredients")
+         titleQantity.appendChild(unit)  
          
       
     //  ingredient.textContent = recipes[index];
@@ -64,12 +73,11 @@ main.appendChild(divCard);
  divTime.appendChild(iconTime);  
  divTime.appendChild(time);
  divCard.appendChild(ingredientsDiv);
- ingredientsDiv.appendChild( titleQantityDiv)
- titleQantityDiv.appendChild(ingredt)
- titleQantityDiv.appendChild(quantityDom)
+ ingredientsDiv.appendChild( titleQantityDiv);
+ titleQantityDiv.appendChild( titleQantity);
  ingredientsDiv.appendChild(description);
      
-
+      
         }
     
 }
