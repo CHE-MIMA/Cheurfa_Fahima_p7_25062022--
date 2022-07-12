@@ -45,21 +45,23 @@ for (let index = 0; index < recipes.length; index++) {
     for (let index = 0; index < ingredientsTb.length; index++){
         console.log(ingredientsTb[index].ingredient);
        
+
+         const ingredientsList= ingredientsTb[index].ingredient;
         const titleQantity = document.createElement("div");
         titleQantity.classList.add("title_quantity")
 
         const ingredt = document.createElement("h3")
-         ingredt.textContent= ingredientsTb[index].ingredient+":"+" ";
+         ingredt.textContent=  ingredientsList+":"+" ";
          ingredt.classList.add("title-ingredients")
-         titleQantity.appendChild(ingredt)
+      
          const quantity = document.createElement("h4")
          quantity.textContent= ingredientsTb[index].quantity;
          quantity.classList.add("quantity-ingredients")
-         titleQantity.appendChild(quantity)
+        
          const unit = document.createElement("h5")
          unit.textContent= ingredientsTb[index].unit;
          unit.classList.add("unit-ingredients")
-         titleQantity.appendChild(unit)  
+         
          
       
     //  ingredient.textContent = recipes[index];
@@ -75,10 +77,19 @@ main.appendChild(divCard);
  divCard.appendChild(ingredientsDiv);
  ingredientsDiv.appendChild( titleQantityDiv);
  titleQantityDiv.appendChild( titleQantity);
+ titleQantity.appendChild(ingredt);
+ titleQantity.appendChild(quantity)
+ titleQantity.appendChild(unit)
  ingredientsDiv.appendChild(description);
-     
-      
+
+
+
+
+
+ document.getElementById("liste_ingredients").textContent= ingredientsList;    
+ document.getElementById("liste_appareils").textContent=recipes[index].appliance;
+ document.getElementById("liste_ustensiles").textContent=recipes[index].ustensils;   
         }
-    
+
 }
 // document.addEventListener("keyup", "onchange")
