@@ -1,18 +1,16 @@
 import {recipes} from "./recipes.js";
 console.log(recipes);
+let ingredientsList=new Set();
+let   ustensilsList= new Set();
+ 
 
 const main = document.getElementById("card-grid");
 for (let index = 0; index < recipes.length; index++) {
     const ingredientsTb = recipes[index].ingredients;
+    const ustensilsTb = recipes[index].ustensils;
+    const appareilTb= recipes[index].appliance;
 
-    console.log(ingredientsTb);
- 
-
-// ingredientsTb.forEach(element => {
-//     console.log(ingredientsTb[index].ingredient);
-//  });
-   
-   
+    console.log(appareilTb);
     const divCard = document.createElement("div")
     divCard.classList.add("card")
     const img = document.createElement("div")
@@ -31,7 +29,6 @@ for (let index = 0; index < recipes.length; index++) {
      time.textContent = recipes[index].time+" "+"min";
      time.classList.add("card-time")
      
-    //  recipes.forEach(ingredient=> {
         const description = document.createElement("span");
         description.textContent = recipes[index].description;
         description.classList.add("card-description")
@@ -46,12 +43,12 @@ for (let index = 0; index < recipes.length; index++) {
         console.log(ingredientsTb[index].ingredient);
        
 
-         const ingredientsList= ingredientsTb[index].ingredient;
+         ingredientsList.add(ingredientsTb[index].ingredient.toLowerCase());
         const titleQantity = document.createElement("div");
         titleQantity.classList.add("title_quantity")
-
+        const recepesIngredt=ingredientsTb[index].ingredient; 
         const ingredt = document.createElement("h3")
-         ingredt.textContent=  ingredientsList+":"+" ";
+         ingredt.textContent= recepesIngredt +":"+" ";
          ingredt.classList.add("title-ingredients")
       
          const quantity = document.createElement("h4")
@@ -61,12 +58,7 @@ for (let index = 0; index < recipes.length; index++) {
          const unit = document.createElement("h5")
          unit.textContent= ingredientsTb[index].unit;
          unit.classList.add("unit-ingredients")
-         
-         
-      
-    //  ingredient.textContent = recipes[index];
   
-    // });
 main.appendChild(divCard);
  divCard.appendChild(img);
  divCard.appendChild(divTitle); 
@@ -83,13 +75,43 @@ main.appendChild(divCard);
  ingredientsDiv.appendChild(description);
 
 
-
-
-
- document.getElementById("liste_ingredients").textContent= ingredientsList;    
- document.getElementById("liste_appareils").textContent=recipes[index].appliance;
- document.getElementById("liste_ustensiles").textContent=recipes[index].ustensils;   
         }
+       
+       document.getElementById("liste_appareils").textContent +=appareilTb.toLowerCase();
+     
+        // for (let index = 0; index < appareilTb; index++){
+        //     appareilsList.add(appareilTb[index].toLowerCase()); }
+        for (let index = 0; index < ustensilsTb.length; index++){
+            ustensilsList.add(ustensilsTb[index].toLowerCase()); 
+            // document.getElementById("liste_ustensiles").textContent +=ustensilsTb[index];    
+        }
+     
+    }
+for(let ingredient of ingredientsList ){
+    
+    let btnIngredient = document.createElement("button");
+    btnIngredient.textContent= ingredient;
+    btnIngredient.classList.add("btn_ingredients");
 
+    document.getElementById("liste_ingredients").appendChild(btnIngredient);  
 }
-// document.addEventListener("keyup", "onchange")
+for(let ustensil of ustensilsList ){
+    
+    let btnUstensiles = document.createElement("button")
+    btnUstensiles.textContent = ustensil
+    btnUstensiles.classList.add("btn_ustensils")
+    document.getElementById("liste_ustensiles").appendChild(btnUstensiles);  
+}
+document.getElementById("btn-ingredients").addEventListeneur('click', function(){
+    document.getElementById("liste_ingredients").style.display='block';
+});
+document.getElementById("btn-ustensils").addEventListeneur('click', function(){
+    document.getElementById("liste_ustensiles").style.display="block";
+});
+
+// for(let appareil of appareilsList ){
+//     let btnAppareil = document.createElement("button")
+//     btnAppareil.textContent += appareil
+//     document.getElementById("liste_appareils").appendChild(btnAppareil);  
+// }
+// document.addEventListener("keyup", "")
