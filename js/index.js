@@ -1,15 +1,16 @@
 import {recipes} from "./recipes.js";
 console.log(recipes);
+
 let ingredientsList=new Set();
 let   ustensilsList= new Set();
- 
-
+let appareilsList=  new Set();
+let appareilsString= '';
 const main = document.getElementById("card-grid");
 for (let index = 0; index < recipes.length; index++) {
     const ingredientsTb = recipes[index].ingredients;
     const ustensilsTb = recipes[index].ustensils;
     const appareilTb= recipes[index].appliance;
-
+ 
     console.log(appareilTb);
     const divCard = document.createElement("div")
     divCard.classList.add("card")
@@ -76,16 +77,28 @@ main.appendChild(divCard);
 
 
         }
-       
-       document.getElementById("liste_appareils").textContent +=appareilTb.toLowerCase();
-     
-        // for (let index = 0; index < appareilTb; index++){
-        //     appareilsList.add(appareilTb[index].toLowerCase()); }
+   
+
+            
         for (let index = 0; index < ustensilsTb.length; index++){
             ustensilsList.add(ustensilsTb[index].toLowerCase()); 
             // document.getElementById("liste_ustensiles").textContent +=ustensilsTb[index];    
         }
-     
+        
+        appareilsString +=appareilTb;
+        
+    }
+  
+    const appareilsArray = appareilsString.split(' ');
+     for (let index = 0; index < appareilsArray.length; index++){
+        appareilsList.add(appareilsArray[index].toLowerCase()); }
+    for(let appareil of appareilsList ){
+        let btnAppareil = document.createElement("button")
+    if(appareilsString != undefined){
+        btnAppareil.textContent = appareil;
+        btnAppareil.classList.add("btn_appareils");
+        document.getElementById("liste_appareils").appendChild(btnAppareil); 
+    }    
     }
 for(let ingredient of ingredientsList ){
     
@@ -102,16 +115,16 @@ for(let ustensil of ustensilsList ){
     btnUstensiles.classList.add("btn_ustensils")
     document.getElementById("liste_ustensiles").appendChild(btnUstensiles);  
 }
-document.getElementById("btn-ingredients").addEventListeneur('click', function(){
-    document.getElementById("liste_ingredients").style.display='block';
-});
-document.getElementById("btn-ustensils").addEventListeneur('click', function(){
-    document.getElementById("liste_ustensiles").style.display="block";
-});
 
-// for(let appareil of appareilsList ){
-//     let btnAppareil = document.createElement("button")
-//     btnAppareil.textContent += appareil
-//     document.getElementById("liste_appareils").appendChild(btnAppareil);  
-// }
+
+
+
+// document.getElementById("btn-ingredients").addEventListeneur('click', function(){
+//     document.getElementById("liste_ingredients").style.display='block';
+// });
+// document.getElementById("btn-ustensils").addEventListeneur('click', function(){
+//     document.getElementById("liste_ustensiles").style.display="block";
+// });
+
+
 // document.addEventListener("keyup", "")
