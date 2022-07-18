@@ -61,8 +61,8 @@ button{
       
 }
 .card{
- width: 465px;
- height: 620px;
+ width: 470px;
+ height: 470px;
  background-color: #E5E5E5;
  border-radius: 5px;
  border: none;
@@ -73,7 +73,7 @@ button{
     margin-right: 10px;
 }
 .card_image{
-    width: 465px;
+    width: 470px;
     height:220px;
     background-color: #C7BEBE;
     border-radius: 5px 5px 0px 0px;
@@ -93,12 +93,16 @@ button{
     margin-top: 20px;
 }
 .card-description{
-    font-size: 13px;
+    font-size: 15px;
     font-weight: 600;
     margin-top: 10px; 
     width: 55%;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 7; 
     text-overflow: ellipsis;
-    overflow:hidden;
+    overflow: hidden;
+    
 }
 .icon-time{
     width: 18px;
@@ -112,7 +116,7 @@ button{
     justify-content: space-between;
 }
 .title-ingredients{
-    font-size: 15px;
+    font-size: 13.4px;
     font-weight: 700;
     margin-right: 2px;
 }
@@ -122,12 +126,12 @@ button{
 
 }
 .quantity-ingredients{
-    font-size: 13px;
+    font-size: 14px;
     font-weight: 600;
     margin-right: 1px;
 }
 .unit-ingredients{
-    font-size: 13px;
+    font-size: 14px;
     font-weight: 600; 
 }
 
@@ -140,3 +144,90 @@ margin-right: 30px;
     display: flex;
     flex-direction: row;
 }
+#liste_ingredients{
+    margin-top: 1px;
+    width: 80%;
+    background-color:#3282F7; 
+    padding-bottom: 20px;
+    padding-left: 10px;
+    
+}
+.btn_ingredients{
+margin-top: 5px;
+font-size: 15px;
+font-weight: 600;
+background-color:#3282F7 ;
+border:none;
+color: #E5E5E5;
+text-align: left;
+width: 22%;
+height: 20px;
+}
+#liste_ustensiles{
+    margin-top: 10px;
+    width: 80%;
+    background-color:#f73232; 
+    padding-bottom: 20px;
+    display: block;
+}
+.btn_ustensils{
+margin-top: 5px;
+font-size: 17px;
+font-weight: 500;
+background-color:#f73232 ;
+border:none;
+color: #E5E5E5;
+text-align: left;
+margin-left: 10px;
+width: 28%;
+height: 20px;
+}
+#liste_appareils{
+    margin-top: 10px;
+    width: 80%;
+    background-color: #68D9A4; 
+
+}
+.btn_appareils{
+    margin-top: 5px;
+    font-size: 17px;
+    font-weight: 500;
+    background-color:#68D9A4 ;
+    border:none;
+    color: white;
+    text-align: left;
+    margin-left: 10px;
+    width: 28%;
+    height: 20px;
+    }
+    .ingredient-search{
+        width: 100.6%;
+        background-color:#3282F7; 
+        color:  #E5E5E5;
+        font-size: 18px;
+        font-family: 600;
+        border: none;
+        padding-left: 10px;
+        margin-left: -10px;
+        height: 40px;
+    }
+    .appareil-search{
+        width: 100%;
+        background-color:#68D9A4 ; 
+        color:white;
+        font-size: 18px;
+        font-family: 1000;
+        border: none;
+        padding-left: 10px;
+        height: 40px;
+    }
+    .ustensil-search{
+        width: 100%;
+        background-color:#f73232; 
+        color:white;
+        font-size: 18px;
+        font-family: 1000;
+        border: none;
+        padding-left: 10px;
+        height: 40px;
+    }
