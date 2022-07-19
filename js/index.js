@@ -120,6 +120,11 @@ for(let ustensil of ustensilsList ){
 
 const btnIgredient = document.getElementById("btn-ingredients");
 const listeIngredient=   document.getElementById("liste_ingredients");
+const btnUstensiles = document.getElementById("btn-ustensiles");
+const listeUstensils= document.getElementById("liste_ustensiles");
+const btnAppareils = document.getElementById("btn-appareils");
+const listeAppareils= document.getElementById("liste_appareils");
+
 // const btnUstensiles=
 btnIgredient.addEventListener('click', function(){
     if( listeIngredient.style.display=='block'){
@@ -132,9 +137,28 @@ btnIgredient.addEventListener('click', function(){
     }
    ;
 });
-document.getElementById("btn-ustensiles").addEventListener('click', function(){
-    document.getElementById("liste_ustensiles").style.display="block";
-});
 
+btnUstensiles.addEventListener('click', function(){
+    if( listeUstensils.style.display=='block'){
+        listeUstensils.style.display='none'
+        btnUstensiles.style.transform = "rotate(0deg)";
+    }
+    else{
+        listeUstensils.style.display='block'
+        btnUstensiles.style.transform = "rotate(180deg)" 
+    }
+   ;
+});
+btnAppareils.addEventListener('click', function(){
+    if( listeAppareils.style.display=='block'){
+        listeAppareils.style.display='none'
+        btnAppareils.style.transform = "rotate(0deg)";
+    }
+    else{
+        listeAppareils.style.display='block'
+        btnAppareils.style.transform = "rotate(180deg)" 
+    }
+   ;
+});
 
 // document.addEventListener("keyup", "")
