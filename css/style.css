@@ -148,6 +148,8 @@ margin-right: 40px;
     background-color:#3282F7; 
     padding-bottom: 20px;
     padding-left: 10px;
+    display: none;
+    
     
 }
 .btn_ingredients{
@@ -166,7 +168,7 @@ height: 20px;
     width: 80%;
     background-color:#f73232; 
     padding-bottom: 20px;
-    display: block;
+    display: none;
 }
 .btn_ustensils{
 margin-top: 5px;
@@ -183,6 +185,8 @@ height: 20px;
 #liste_appareils{
     width: 80%;
     background-color: #68D9A4; 
+    display: none;
+    
 }
 .btn_appareils{
     margin-bottom: 10px;

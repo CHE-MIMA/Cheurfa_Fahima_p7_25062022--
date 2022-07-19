@@ -1,6 +1,7 @@
 import {recipes} from "./recipes.js";
+displayRecipes(recipes);
 console.log(recipes);
-
+ export function displayRecipes(recipes){
 let ingredientsList=new Set();
 let   ustensilsList= new Set();
 let appareilsList=  new Set();
@@ -11,7 +12,7 @@ for (let index = 0; index < recipes.length; index++) {
     const ustensilsTb = recipes[index].ustensils;
     const appareilTb= recipes[index].appliance;
  
-    console.log(appareilTb);
+    // console.log(appareilTb);
     const divCard = document.createElement("div")
     divCard.classList.add("card")
     const img = document.createElement("div")
@@ -41,7 +42,7 @@ for (let index = 0; index < recipes.length; index++) {
     titleQantityDiv.classList.add("div-title_quantity")
 
     for (let index = 0; index < ingredientsTb.length; index++){
-        console.log(ingredientsTb[index].ingredient);
+        // console.log(ingredientsTb[index].ingredient);
        
 
          ingredientsList.add(ingredientsTb[index].ingredient.toLowerCase());
@@ -115,16 +116,25 @@ for(let ustensil of ustensilsList ){
     btnUstensiles.classList.add("btn_ustensils")
     document.getElementById("liste_ustensiles").appendChild(btnUstensiles);  
 }
+}
 
-
-
-
-// document.getElementById("btn-ingredients").addEventListeneur('click', function(){
-//     document.getElementById("liste_ingredients").style.display='block';
-// });
-// document.getElementById("btn-ustensils").addEventListeneur('click', function(){
-//     document.getElementById("liste_ustensiles").style.display="block";
-// });
+const btnIgredient = document.getElementById("btn-ingredients");
+const listeIngredient=   document.getElementById("liste_ingredients");
+// const btnUstensiles=
+btnIgredient.addEventListener('click', function(){
+    if( listeIngredient.style.display=='block'){
+        listeIngredient.style.display='none'
+        btnIgredient.style.transform = "rotate(0deg)";
+    }
+    else{
+        listeIngredient.style.display='block'
+        btnIgredient.style.transform = "rotate(180deg)" 
+    }
+   ;
+});
+document.getElementById("btn-ustensiles").addEventListener('click', function(){
+    document.getElementById("liste_ustensiles").style.display="block";
+});
 
 
 // document.addEventListener("keyup", "")
