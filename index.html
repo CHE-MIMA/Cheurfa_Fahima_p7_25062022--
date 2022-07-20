@@ -21,35 +21,22 @@
     </input>
 
 <div class="button-flex">
-<button type="button" class="btn btn-primary">Ingredients
-
-    <img src="bas.png" alt="" class="icon-bas" id="btn-ingredients"></img>
+<button type="button" class="btn btn-primary" id="button-ingredients">
+    <input  type="text" placeholder="Ingredients" id="ingredient-search">
+    <img src="bas.png" alt="" class="icon-bas" id="icon-ingredients"></img>
 </button>
-<button id="btn-success" class="btn btn-success" >Appareils
-    <img src="bas.png" alt="" class="icon-bas" id="btn-appareils"></img>
+<button  class="btn btn-success" id="button-appareils">
+    <input  type="text" placeholder="Appareils" id= "appareil-search">
+    <img src="bas.png" alt="" class="icon-bas" id="icon-appareils"></img>
 </button>
-<button type="button" class="btn btn-danger">Ustensiles
-    <img src="bas.png" alt="" class="icon-bas" id="btn-ustensiles"></img>
+<button type="button" class="btn btn-danger" id="button-ustensils">
+    <input  type="text" placeholder="Ustensiles" id="ustensil-search">
+    <img src="bas.png" alt="" class="icon-bas" id="icon-ustensiles"></img>
 </button>
 </div>
-<div id="liste_ingredients">
-      <input  type="text" placeholder="Rechercher un ingredient" class="ingredient-search">
-       <img src="haut.png" alt="" class="icon-haut"></img>
-    </input>     
-</div>
-<div id="liste_appareils">
-   
-       <input  type="text" placeholder="Rechercher un appareil" class= "appareil-search">
-       <img src="haut.png" alt="" class="icon-haut"></img>
-    
-</div>
-<div id="liste_ustensiles">
-
-          <input  type="text" placeholder="Rechercher un ustensile" class="ustensil-search">
-        <img src="haut.png" alt="" class="icon-haut"></img>
-    
-</div>
-
+<div id="liste_ingredients"></div>
+<div id="liste_appareils"></div>
+<div id="liste_ustensiles"></div>
 <div id="card-grid"></div>
  </main> 
  <script type="module" src="./js/index.js"></script>

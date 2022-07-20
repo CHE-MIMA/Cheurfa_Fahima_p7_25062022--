@@ -93,6 +93,7 @@ main.appendChild(divCard);
     const appareilsArray = appareilsString.split(' ');
      for (let index = 0; index < appareilsArray.length; index++){
         appareilsList.add(appareilsArray[index].toLowerCase()); }
+        function displayAppareils(){
     for(let appareil of appareilsList ){
         let btnAppareil = document.createElement("button")
     if(appareilsString != undefined){
@@ -101,6 +102,8 @@ main.appendChild(divCard);
         document.getElementById("liste_appareils").appendChild(btnAppareil); 
     }    
     }
+  }
+    function displayIngredients(){
 for(let ingredient of ingredientsList ){
     
     let btnIngredient = document.createElement("button");
@@ -109,6 +112,8 @@ for(let ingredient of ingredientsList ){
 
     document.getElementById("liste_ingredients").appendChild(btnIngredient);  
 }
+}
+function displayUstensils(){
 for(let ustensil of ustensilsList ){
     
     let btnUstensiles = document.createElement("button")
@@ -116,49 +121,75 @@ for(let ustensil of ustensilsList ){
     btnUstensiles.classList.add("btn_ustensils")
     document.getElementById("liste_ustensiles").appendChild(btnUstensiles);  
 }
+ }
+ displayIngredients();
+ displayAppareils();
+ displayUstensils();
 }
 
-const btnIgredient = document.getElementById("btn-ingredients");
+const btnIgredient = document.getElementById("icon-ingredients");
 const listeIngredient=   document.getElementById("liste_ingredients");
-const btnUstensiles = document.getElementById("btn-ustensiles");
+const btnUstensiles = document.getElementById("icon-ustensiles");
 const listeUstensils= document.getElementById("liste_ustensiles");
-const btnAppareils = document.getElementById("btn-appareils");
+const btnAppareils = document.getElementById("icon-appareils");
 const listeAppareils= document.getElementById("liste_appareils");
+const buttonIngredients=document.getElementById("button-ingredients");
+const buttonAppareils=document.getElementById("button-appareils");
+const buttonUstensils=document.getElementById("button-ustensils");
+const searchIngredients=document.getElementById("ingredient-search")
+const searchAppareils=document.getElementById("appareil-search")
+const searchUstensils=document.getElementById("ustensil-search")
+
+
 
 // const btnUstensiles=
 btnIgredient.addEventListener('click', function(){
     if( listeIngredient.style.display=='block'){
         listeIngredient.style.display='none'
         btnIgredient.style.transform = "rotate(0deg)";
+        buttonIngredients.style.width="180px" ;
+        searchIngredients.style.width="180px";
     }
     else{
         listeIngredient.style.display='block'
         btnIgredient.style.transform = "rotate(180deg)" 
+        buttonIngredients.style.width="735px" 
+        searchIngredients.style.width="735px";
     }
-   ;
+  
+});
+btnAppareils.addEventListener('click', function(){
+    if( listeAppareils.style.display=='block'){
+        listeAppareils.style.display='none'
+        btnAppareils.style.transform = "rotate(0deg)";
+        buttonAppareils.style.width="180px" ;
+        searchAppareils.style.width="180px";
+
+    }
+    else{
+        listeAppareils.style.display='block'
+        btnAppareils.style.transform = "rotate(180deg)" 
+        buttonAppareils.style.width ="732px"
+        searchAppareils.style.width="732px";
+    }
+   
 });
 
 btnUstensiles.addEventListener('click', function(){
     if( listeUstensils.style.display=='block'){
         listeUstensils.style.display='none'
         btnUstensiles.style.transform = "rotate(0deg)";
+        buttonUstensils.style.width="180px" ;
+        searchUstensils.style.width="180px";
     }
     else{
         listeUstensils.style.display='block'
         btnUstensiles.style.transform = "rotate(180deg)" 
+        buttonUstensils.style.width="732px";
+        searchUstensils.style.width="732px";
     }
-   ;
+  
 });
-btnAppareils.addEventListener('click', function(){
-    if( listeAppareils.style.display=='block'){
-        listeAppareils.style.display='none'
-        btnAppareils.style.transform = "rotate(0deg)";
-    }
-    else{
-        listeAppareils.style.display='block'
-        btnAppareils.style.transform = "rotate(180deg)" 
-    }
-   ;
-});
+
 
 // document.addEventListener("keyup", "")

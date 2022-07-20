@@ -144,37 +144,39 @@ margin-right: 40px;
     flex-direction: row;
 }
 #liste_ingredients{
-    width: 80%;
-    background-color:#3282F7; 
+    width: 50%;
+    background-color:#0d6efd; 
     padding-bottom: 20px;
     padding-left: 10px;
-    display: none;
-    
-    
+    display: none; 
+    margin-left: 1px;  
+    margin-top: -10px;
 }
 .btn_ingredients{
-margin-top: 5px;
+margin-top: 10px;
 font-size: 15px;
 font-weight: 600;
-background-color:#3282F7 ;
+background-color:#0d6efd;
 border:none;
 color: #E5E5E5;
-text-align: left;
-width: 22%;
+width: 28%;
 height: 20px;
+text-align: left;
+margin-left: 10px;
+
 }
 #liste_ustensiles{
-  
-    width: 80%;
-    background-color:#f73232; 
+    width: 50%;
+    background-color:#dc3545; 
     padding-bottom: 20px;
     display: none;
+    margin-left: 28%;
 }
 .btn_ustensils{
 margin-top: 5px;
 font-size: 17px;
 font-weight: 500;
-background-color:#f73232 ;
+background-color:#dc3545 ;
 border:none;
 color: #E5E5E5;
 text-align: left;
@@ -183,12 +185,13 @@ width: 28%;
 height: 20px;
 }
 #liste_appareils{
-    width: 80%;
+    width: 50%;
     background-color: #68D9A4; 
     display: none;
-    
+    margin-left: 14%;   
 }
 .btn_appareils{
+    margin-top: 10px;
     margin-bottom: 10px;
     font-size: 17px;
     font-weight: 500;
@@ -200,45 +203,57 @@ height: 20px;
     width: 28%;
     height: 20px;
     }
-    .ingredient-search{
-        width: 100.5%;
-        background-color:#3282F7; 
-        color:  #E5E5E5;
+
+    #ingredient-search{
+        width: 180px;
         font-size: 18px;
         font-family: 600;
         border: none;
+        height: 60px;
+        margin-left: -13px;
         padding-left: 10px;
-        margin-left: -10px;
-        height: 50px;
-        margin-bottom: -80px;
-    }
-    
-    .appareil-search{
-        width: 100%;
-        background-color:#68D9A4 ; 
-        color:white;
-        font-size: 18px;
-        font-family: 1000;
-        border: none;
-        padding-left: 10px;
-        height: 50px;
-        margin-bottom: -80px;
-    }
-    .ustensil-search{
-        width: 100%;
-        background-color:#f73232; 
-        color:white;
-        font-size: 18px;
-        font-family: 1000;
-        border: none;
-        padding-left: 10px;
-        height: 50px;
-        margin-bottom: -80px;
+        margin-top: -7px;
+        background-color: #0d6efd;
+        color:#fff;
+        border-radius: 5px; 
     }
    
-.icon-haut{
-margin-top: -60px;
-font-size: 10px;
-margin-left: 95%;
-
-}
+    #appareil-search{
+        width: 180px;
+        background-color:#68D9A4 ; 
+        color:#fff;
+        font-size: 18px;
+        font-family: 1000;
+        border: none;
+        height: 60px;
+        margin-left: -13px;
+        padding-left: 10px;  
+        margin-top: -7px;
+        border-radius: 5px; 
+    }
+    #ustensil-search{
+        width: 180px;
+        background-color: #dc3545; 
+        color:#fff;
+        font-size: 18px;
+        font-family: 1000;
+        border: none;
+        height: 60px; 
+        margin-left: -13px;
+        padding-left: 10px;  
+        margin-top: -7px; 
+        border-radius: 5px; 
+    }
+    #button-ingredients{
+        width: 180px;
+    }
+    #button-appareils{
+        width: 180px;
+    }
+    #button-ustensils{
+        width: 180px;
+    }
+   .icon-bas{
+    margin-left: 80%;
+    margin-top: -90px;
+   }
