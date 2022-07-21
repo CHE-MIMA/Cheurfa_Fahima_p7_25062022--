@@ -91,41 +91,55 @@ main.appendChild(divCard);
     }
   
     const appareilsArray = appareilsString.split(' ');
-     for (let index = 0; index < appareilsArray.length; index++){
+    for (let index = 0; index < appareilsArray.length; index++){
         appareilsList.add(appareilsArray[index].toLowerCase()); }
-        function displayAppareils(){
-    for(let appareil of appareilsList ){
-        let btnAppareil = document.createElement("button")
-    if(appareilsString != undefined){
-        btnAppareil.textContent = appareil;
-        btnAppareil.classList.add("btn_appareils");
-        document.getElementById("liste_appareils").appendChild(btnAppareil); 
-    }    
-    }
-  }
-    function displayIngredients(){
-for(let ingredient of ingredientsList ){
-    
-    let btnIngredient = document.createElement("button");
-    btnIngredient.textContent= ingredient;
-    btnIngredient.classList.add("btn_ingredients");
 
-    document.getElementById("liste_ingredients").appendChild(btnIngredient);  
-}
-}
-function displayUstensils(){
-for(let ustensil of ustensilsList ){
+
+
+    function displayFiltres(){
+for(let appareil of appareilsList ){
+    let btnAppareil = document.createElement("button")
+if(appareilsString != undefined){
+    btnAppareil.textContent = appareil;
+    btnAppareil.classList.add("btn_appareils");
+    document.getElementById("liste_appareils").appendChild(btnAppareil); 
     
-    let btnUstensiles = document.createElement("button")
-    btnUstensiles.textContent = ustensil
-    btnUstensiles.classList.add("btn_ustensils")
-    document.getElementById("liste_ustensiles").appendChild(btnUstensiles);  
 }
+}
+
+for(let ingredient of ingredientsList ){
+
+let btnIngredient = document.createElement("button");
+btnIngredient.textContent= ingredient;
+btnIngredient.classList.add("btn_ingredients");
+
+document.getElementById("liste_ingredients").appendChild(btnIngredient);  
+}
+
+
+for(let ustensil of ustensilsList ){
+
+let btnUstensiles = document.createElement("button")
+btnUstensiles.textContent = ustensil
+btnUstensiles.classList.add("btn_ustensils")
+document.getElementById("liste_ustensiles").appendChild(btnUstensiles);  
+}
+    }
+ displayFiltres();
+
+ const recipesCard=document.getElementById("card-grid");
+  
+ //  message "pas de recette disponible"
+  if(recipesCard.innerHTML== "") {
+    const noRecipesDiv = document.createElement("div")
+    noRecipesDiv.textContent = "Il n'y a pas de recette correspondant à votre recherche."
+    noRecipesDiv.classList.add("noRecipes");
+    recipesCard.appendChild(noRecipesDiv);
+}
+
+
+
  }
- displayIngredients();
- displayAppareils();
- displayUstensils();
-}
 
 const btnIgredient = document.getElementById("icon-ingredients");
 const listeIngredient=   document.getElementById("liste_ingredients");

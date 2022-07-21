@@ -257,3 +257,8 @@ height: 20px;
     margin-left: 80%;
     margin-top: -90px;
    }
+   .noRecipes{
+    font-size: 19px;
+    font-family: 1000;
+    color: red;
+   }
