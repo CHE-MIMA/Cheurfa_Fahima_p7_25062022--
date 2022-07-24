@@ -1,16 +1,18 @@
 import {recipes} from "./recipes.js";
 displayRecipes(recipes);
 console.log(recipes);
+
  export function displayRecipes(recipes){
-let ingredientsList=new Set();
-let   ustensilsList= new Set();
-let appareilsList=  new Set();
-let appareilsString= '';
+    let newIngredientsList=new Set();
+    let  newUstensilsList= new Set();
+
+// let appareilsList=  new Set();
+// let appareilsString= '';
 const main = document.getElementById("card-grid");
 for (let index = 0; index < recipes.length; index++) {
-    const ingredientsTb = recipes[index].ingredients;
-    const ustensilsTb = recipes[index].ustensils;
-    const appareilTb= recipes[index].appliance;
+    let ingredientsTb = recipes[index].ingredients;
+    let ustensilsTb = recipes[index].ustensils;
+ 
  
     // console.log(appareilTb);
     const divCard = document.createElement("div")
@@ -41,11 +43,13 @@ for (let index = 0; index < recipes.length; index++) {
     const titleQantityDiv = document.createElement("div");
     titleQantityDiv.classList.add("div-title_quantity")
 
+
+
     for (let index = 0; index < ingredientsTb.length; index++){
         // console.log(ingredientsTb[index].ingredient);
        
 
-         ingredientsList.add(ingredientsTb[index].ingredient.toLowerCase());
+         newIngredientsList.add(ingredientsTb[index].ingredient.toLowerCase());
         const titleQantity = document.createElement("div");
         titleQantity.classList.add("title_quantity")
         const recepesIngredt=ingredientsTb[index].ingredient; 
@@ -74,40 +78,22 @@ main.appendChild(divCard);
  titleQantity.appendChild(ingredt);
  titleQantity.appendChild(quantity)
  titleQantity.appendChild(unit)
- ingredientsDiv.appendChild(description);
-
-
-        }
+ ingredientsDiv.appendChild(description)   
    
-
+    }
             
         for (let index = 0; index < ustensilsTb.length; index++){
-            ustensilsList.add(ustensilsTb[index].toLowerCase()); 
-            // document.getElementById("liste_ustensiles").textContent +=ustensilsTb[index];    
+            newUstensilsList.add(ustensilsTb[index].toLowerCase()); 
+               
         }
-        
-        appareilsString +=appareilTb;
-        
-    }
-  
-    const appareilsArray = appareilsString.split(' ');
-    for (let index = 0; index < appareilsArray.length; index++){
-        appareilsList.add(appareilsArray[index].toLowerCase()); }
-
-
-
-    function displayFiltres(){
-for(let appareil of appareilsList ){
-    let btnAppareil = document.createElement("button")
-if(appareilsString != undefined){
-    btnAppareil.textContent = appareil;
-    btnAppareil.classList.add("btn_appareils");
-    document.getElementById("liste_appareils").appendChild(btnAppareil); 
-    
 }
-}
+       
+ 
 
-for(let ingredient of ingredientsList ){
+
+
+
+for(let ingredient of newIngredientsList ){
 
 let btnIngredient = document.createElement("button");
 btnIngredient.textContent= ingredient;
@@ -117,15 +103,15 @@ document.getElementById("liste_ingredients").appendChild(btnIngredient);
 }
 
 
-for(let ustensil of ustensilsList ){
+for(let ustensil of newUstensilsList ){
 
 let btnUstensiles = document.createElement("button")
 btnUstensiles.textContent = ustensil
 btnUstensiles.classList.add("btn_ustensils")
 document.getElementById("liste_ustensiles").appendChild(btnUstensiles);  
 }
-    }
- displayFiltres();
+    
+ 
 
  const recipesCard=document.getElementById("card-grid");
   
@@ -136,10 +122,103 @@ document.getElementById("liste_ustensiles").appendChild(btnUstensiles);
     noRecipesDiv.classList.add("noRecipes");
     recipesCard.appendChild(noRecipesDiv);
 }
+  // > Event listener input du filtre ingrédients
+  const searchIngredients=document.getElementById("ingredient-search")
+  const listeIngredient=   document.getElementById("liste_ingredients");
+
+  searchIngredients.addEventListener("keyup", (e) => {
+    const value = e.target.value
+    console.log(value);
+    let newIngredientsSet = new Set();
+    newIngredientsList.forEach((ingredient) => {
+        if(ingredient.toLowerCase().includes(value.toLowerCase())) {
+            newIngredientsSet.add(ingredient);
+        }
+    })
+    listeIngredient.innerHTML = ""                        
+    for(let ingredient of newIngredientsSet ){
+    
+    let btnIngredient = document.createElement("button");
+    btnIngredient.textContent= ingredient;
+    btnIngredient.classList.add("btn_ingredients");
+    
+    document.getElementById("liste_ingredients").appendChild(btnIngredient);  
+    }
+}) 
+
+ // > Event listener input du filtre ustensils
+ const searchUstensils=document.getElementById("ustensil-search")
+ const listeUstensils=   document.getElementById("liste_ustensiles");
+searchUstensils.addEventListener("keyup", (e) => {
+    const value = e.target.value
+    console.log(value);
+    let newUstensilsSet = new Set();
+    newUstensilsList.forEach((ustensil) => {
+        if(ustensil.toLowerCase().includes(value.toLowerCase())) {
+            newUstensilsSet.add(ustensil);
+        }
+    })
+    listeUstensils.innerHTML = ""                        
+    for(let ustensil of newUstensilsSet ){
+    
+    let btnUstensiles = document.createElement("button");
+    btnUstensiles.textContent= ustensil;
+    btnUstensiles.classList.add("btn_ustensils");
+    
+    document.getElementById("liste_ustensiles").appendChild(btnUstensiles);  
+    }
+})  
+}
 
 
+let allAppareils = []
+ for (let index = 0; index < recipes.length; index++) {
+ let appareils= recipes[index].appliance;
+ allAppareils.push(appareils.toLowerCase())
+ let newAppareilsList= new Set(allAppareils)
+ const searchAppareils=document.getElementById("appareil-search")
+const listeAppareils=   document.getElementById("liste_appareils");
+ // newAppareilsList.add(appareils.toLowerCase()); 
+ console.log( newAppareilsList);
+ listeAppareils.innerHTML = ""  
+ for( let appareil of newAppareilsList){
+    let btnAppareil = document.createElement("button")
+    btnAppareil.textContent = appareil;
+    btnAppareil.classList.add("btn_appareils");
+    document.getElementById("liste_appareils").appendChild(btnAppareil);   
+}
+ // Event listener input du filtre appareils
 
+    searchAppareils.addEventListener("input", (e) => {
+        const value = e.target.value
+        let newAppareilsSet = new Set();
+        newAppareilsList.forEach((appareil) => {
+            if(appareil.toLowerCase().includes(value.toLowerCase())) {
+                newAppareilsSet.add(appareil);
+            }
+        }) 
+        listeAppareils.innerHTML = ""                        
+    for(let appareil of newAppareilsSet ){
+    
+    let btnAppareil = document.createElement("button");
+    btnAppareil.textContent= appareil;
+    btnAppareil.classList.add("btn_appareils");
+    
+    document.getElementById("liste_appareils").appendChild(btnAppareil);  
+    }                       
+                
+    })
  }
+
+ 
+ 
+ 
+// const appareilsArray = appareilsString.split(' ');
+// for (let index = 0; index < appareilsArray.length; index++){
+//     appareilsList.add(appareilsArray[index].toLowerCase()); }
+
+
+
 
 const btnIgredient = document.getElementById("icon-ingredients");
 const listeIngredient=   document.getElementById("liste_ingredients");
@@ -206,4 +285,6 @@ btnUstensiles.addEventListener('click', function(){
 });
 
 
-// document.addEventListener("keyup", "")
+
+
+ 
