@@ -4,7 +4,6 @@ displayRecipes(recipes);
  export function displayRecipes(recipes){
 //  on crée une nouveau tableau d'ingrédients pour effacer les doublons
 let newIngredientsList=new Set();
-
 // on crée un nouveau tableau ustensils pour eviter des doublons 
 let  newUstensilsList= new Set();
 
@@ -94,6 +93,7 @@ for (let index = 0; index < recipes.length; index++) {
 
     //  on filtres la liste ingredients >> Event listener input du filtre ingrédients
     const searchIngredients=document.getElementById("ingredient-search")
+    const listeIngredient= document.getElementById("liste_ingredients");
     searchIngredients.addEventListener("keyup", (e) => {
         const value = e.target.value
         console.log(value);
@@ -111,9 +111,11 @@ for (let index = 0; index < recipes.length; index++) {
         
         document.getElementById("liste_ingredients").appendChild(btnIngredient);  
         }
-    }) 
+    })
+
      // on filtres la liste ustensils >> Event listener input du filtre ustensils
      const searchUstensils=document.getElementById("ustensil-search")
+     const listeUstensils= document.getElementById("liste_ustensiles");
      searchUstensils.addEventListener("keyup", (e) => {
         const value = e.target.value
         console.log(value);

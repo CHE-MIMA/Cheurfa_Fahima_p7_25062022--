@@ -248,13 +248,14 @@ margin-top: 5px;
         border: #0d6efd;
         border-radius: 5px;
         background-color: #0d6efd;
+        margin-top: 40px;
     }
     #button-appareils{
         width: 180px;
         border:#68D9A4;
         border-radius: 5px;
         background-color:#68D9A4;
-    
+        margin-top: 40px;
       
     }
     #button-ustensils{
@@ -262,7 +263,7 @@ margin-top: 5px;
         border:#dc3545;
         border-radius: 5px;
         background-color:#dc3545;
-     
+        margin-top: 40px;
     }
    .icon-bas{
     margin-left: 80%;
@@ -272,4 +273,9 @@ margin-top: 5px;
     font-size: 19px;
     font-family: 1000;
     color: red;
+   }
+   .btn_ingredient_tag{
+    width: 130px;
+    height: 40px;
+    background-color: #0d6efd;
    }
