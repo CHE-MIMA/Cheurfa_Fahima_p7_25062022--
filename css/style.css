@@ -147,9 +147,8 @@ margin-right: 40px;
     width: 50.3%;
     background-color:#0d6efd; 
     display: none; 
-    margin-left: 1px;  
-    margin-top: -24px;
-    border-radius: 5px;
+    margin-top: -25px;
+
 }
 .btn_ingredients{
 margin-top: 5px;
@@ -169,8 +168,8 @@ margin-bottom: 15px;
     background-color:#dc3545; 
     display: none;
     margin-left: 28%;
-    margin-top: -24px;
-    border-radius: 5px;
+    margin-top: -25px;
+ 
 }
 .btn_ustensils{
 margin-top: 5px;
@@ -190,8 +189,8 @@ margin-bottom: 15px;
     background-color: #68D9A4; 
     display: none;
     margin-left: 14%; 
-    margin-top: -24px;  
-    border-radius: 5px;
+    margin-top: -25px;  
+
 }
 .btn_appareils{
 margin-top: 5px;
@@ -233,7 +232,7 @@ margin-top: 5px;
         border-radius: 5px; 
     }
     #ustensil-search{
-        width: 180px;
+        width: 178px;
         background-color: #dc3545; 
         color:#fff;
         font-size: 18px;
@@ -255,12 +254,15 @@ margin-top: 5px;
         border:#68D9A4;
         border-radius: 5px;
         background-color:#68D9A4;
+    
+      
     }
     #button-ustensils{
         width: 180px;
         border:#dc3545;
         border-radius: 5px;
         background-color:#dc3545;
+     
     }
    .icon-bas{
     margin-left: 80%;

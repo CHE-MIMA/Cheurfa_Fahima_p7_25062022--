@@ -28,7 +28,7 @@ export const recipes = [
             }
         ],
         "time": 10,
-        "description": "Mettre les glaçons à votre goût dans le blender, ajouter le lait, la crème de coco, le jus de 2 citrons et le sucre. mixeur jusqu'à avoir la consistence désirée",
+        "description": "Mettre les glaçons à votre goût dans le blender, ajouter le lait, la crème de coco, le jus de 2 citrons et le sucre. mixer jusqu'à avoir la consistence désirée",
         "appliance": "Blender",
         "ustensils": ["cuillère à Soupe", "verres", "presse citron" ],
     },
@@ -1228,7 +1228,7 @@ export const recipes = [
             }
         ],
         "time": 25,
-        "description":"Éplucher les légumes, les couper en morceaux et les mettre à cuire dans une cocotte minute environ 15 minutes. mixeur en ajoutant le beurre, la crème. Ajouter le cumun et la noix de muscade.",
+        "description":"Éplucher les légumes, les couper en morceaux et les mettre à cuire dans une cocotte minute environ 15 minutes. mixer en ajoutant le beurre, la crème. Ajouter le cumun et la noix de muscade.",
         "appliance": "mixeur",
         "ustensils":["cocotte minute", "couteau", "cuillère en bois"]
     },

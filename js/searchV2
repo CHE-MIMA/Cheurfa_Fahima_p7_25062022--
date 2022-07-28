@@ -1,29 +1,23 @@
-// import {recipes} from "./recipes.js";
-// import {displayRecipes} from "./index.js";
-// let searchPrincipal = document.getElementById("principal-search");
-// searchPrincipal.addEventListener("keyup", function(){
-//     let searchInput= searchPrincipal.value;
-//     let searchedArray = []
-//     if(searchInput.length >= 3) {
-//         recipes.forEach((recipe) => {
-//             if(recipe.name.toLowerCase().includes(searchInput) || 
-//             recipe.description.toLowerCase().includes(searchInput) 
-//             ||
-//             recipe.ingredients.forEach((ingredient) => {
-//                 ingredient.ingredient.toLowerCase().includes(searchInput)
-            
-//          })
-//         ){
-//         searchedArray.push(recipe)
-//         }
-//         })
-//         console.log(searchedArray)
-//     } else {
-//         searchedArray = recipes;
-//     }
-//     document.getElementById("card-grid").innerHTML='';
-//  displayRecipes(searchedArray);
-// })
+import {recipes} from "./recipes.js";
+import {displayRecipes} from "./index.js";
+let searchPrincipal = document.getElementById("principal-search");
+searchPrincipal.addEventListener("keyup", function(){
+    let searchInput= searchPrincipal.value;
+ 
+    if(searchInput.length >= 3) {
+         let newSearchedArray =  recipes.map((recipe) => {
+            if(recipe.name + recipe.description + recipe.ingredients.toLowerCase().includes(searchInput) 
+         ) 
+        return newSearchedArray.push(recipe)
+        })
+        
+        console.log(newSearchedArray)
+    } else {
+       return newSearchedArray
+    }
+    document.getElementById("card-grid").innerHTML='';
+ displayRecipes(newSearchedArray);
+})
 
 
 
