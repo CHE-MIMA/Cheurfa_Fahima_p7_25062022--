@@ -16,6 +16,7 @@ for (let index = 0; index < recipes.length; index++) {
 //  alimentation des recettes dans la div card 
     const divCard = document.createElement("div")
     divCard.classList.add("card")
+    divCard.setAttribute("id",recipes[index].id)
     const img = document.createElement("div")
     img.classList.add("card_image")
     const divTitle = document.createElement("div")
