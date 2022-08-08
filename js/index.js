@@ -1,4 +1,5 @@
 import {recipes} from "./recipes.js";
+import {displayTags} from "./tag.js";
 displayRecipes(recipes);
 // console.log(recipes);
  export function displayRecipes(recipes){
@@ -9,6 +10,7 @@ let  newUstensilsList= new Set();
 
 // on boucle sur recipes pour recupérer les tableaux ingredients et ustensils
 const main = document.getElementById("card-grid");
+main.innerHTML="";
 for (let index = 0; index < recipes.length; index++) {
     let ingredientsTb = recipes[index].ingredients;
     let ustensilsTb = recipes[index].ustensils;
@@ -138,7 +140,8 @@ for (let index = 0; index < recipes.length; index++) {
     }) 
 
 displayIngredients(newIngredientsList);
-displayUstensils(newUstensilsList)
+displayUstensils(newUstensilsList);
+displayTags();
 }
 // on reaffiche le liste ingredient apres le filtres
 export function displayIngredients(newIngredientsLists){

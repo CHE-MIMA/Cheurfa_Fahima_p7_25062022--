@@ -1,12 +1,17 @@
 import {recipes} from "./recipes.js";
-
-
-const btnIngredient = document.querySelectorAll(".btn_ingredients");
+import {displayRecipes} from "./index.js";
 const btnUstensil = document.querySelectorAll(".btn_ustensils");
 const btnAppareil = document.querySelectorAll(".btn_appareils");
-const listeTag = document.getElementById("liste_tag")
+// main.addEventListener("DOMNodeInserted", displayTags());
+export function displayTags(){
+    
 
+const btnIngredient = document.querySelectorAll(".btn_ingredients");
+
+const listeTag = document.getElementById("liste_tag");
+// const main = document.getElementById("card-grid");
 console.log(btnIngredient);
+let ingrArrayTag = [];
 // newIngredientList.forEach(btn => {
     btnIngredient.forEach(btn=>{ btn.addEventListener("click", function(){
         console.log(btn.textContent);
@@ -17,39 +22,50 @@ console.log(btnIngredient);
         closeIcon.setAttribute("src", "./closeIcon.svg")
         closeIcon.classList.add("close_icon")
         btnIngredientTag.appendChild(closeIcon);
-        listeTag.appendChild(btnIngredientTag);  
-        const recipe = document.querySelectorAll('.card');
-        recipe.forEach(r=>{console.log(r.getAttribute("id"));});
+        listeTag.appendChild(btnIngredientTag); 
+       
+        recipes.forEach((recipe) => { 
+        const recipeCard = document.querySelectorAll('.card');
+        recipeCard.forEach(r=>{
+            console.log(r.getAttribute("id"));
+            console.log(recipe.id);
+            if(r.getAttribute("id")==recipe.id){
+                ingrArrayTag.push(recipe);
+
+            };
+        })
        
         // function getSearchWidthIngredient(){
-        let ingrArrayTag = []
-        let btnIngredientInput= btnIngredient;
-        if(btn==btnIngredientInput){
-        recipes.forEach((recipe) => {
-            if(recipe.name.toLowerCase().includes(btnIngredientInput) || 
-            recipe.description.toLowerCase().includes(btnIngredientInput)||
-            recipe.ingredients.forEach((ingredient) => {
-             ingredient.ingredient.toLowerCase().includes(btnIngredientInput)
+   
+        let btnIngredientInput= btn.innerText;
+        console.log( btnIngredientInput);
+         displayRecipes(ingrArrayTag);
+        // recipes.forEach((recipe) => {
+        //     if(recipe.name.toLowerCase().includes(btnIngredientInput) || 
+        //     recipe.description.toLowerCase().includes(btnIngredientInput)||
+        //     recipe.ingredients.forEach((ingredient) => {
+        //      ingredient.ingredient.toLowerCase().includes(btnIngredientInput)
             
-         })
-        ){
-        ingrArrayTag.push(recipe);
-        console.log(ingrArrayTag);
-          }
-        })
-       }
-     else {
-        ingrArrayTag = recipes;
-        }
+        //  })
+        //     ){
+      
+        // console.log(ingrArrayTag);
+       
+        //   }
+        // })
+     
     //   }
     //   getSearchWidthIngredient();
 
-    closeIcon.addEventListener("click", function(){
-        btnIngredientTag.style.display="none";
-      }); 
-           })
-                        })
-
+    // closeIcon.addEventListener("click", function(){
+    //     btnIngredientTag.style.display="none";
+    //   }); 
+        
+})
+})                 
+                     })
+                    }
+                    
 
 
 
