@@ -1,8 +1,5 @@
 import {recipes} from "./recipes.js";
-// let ingredientsTag=[]
-// let appareilsTag=[]
-// let ustensilsTag=[]
-// let arrayatags=[];
+
 
 const btnIngredient = document.querySelectorAll(".btn_ingredients");
 const btnUstensil = document.querySelectorAll(".btn_ustensils");
@@ -23,11 +20,39 @@ console.log(btnIngredient);
         listeTag.appendChild(btnIngredientTag);  
         const recipe = document.querySelectorAll('.card');
         recipe.forEach(r=>{console.log(r.getAttribute("id"));});
-        closeIcon.addEventListener("click", function(){
-            btnIngredientTag.style.display="none";
-        }); 
-})
-});
+       
+        // function getSearchWidthIngredient(){
+        let ingrArrayTag = []
+        let btnIngredientInput= btnIngredient;
+        if(btn==btnIngredientInput){
+        recipes.forEach((recipe) => {
+            if(recipe.name.toLowerCase().includes(btnIngredientInput) || 
+            recipe.description.toLowerCase().includes(btnIngredientInput)||
+            recipe.ingredients.forEach((ingredient) => {
+             ingredient.ingredient.toLowerCase().includes(btnIngredientInput)
+            
+         })
+        ){
+        ingrArrayTag.push(recipe);
+        console.log(ingrArrayTag);
+          }
+        })
+       }
+     else {
+        ingrArrayTag = recipes;
+        }
+    //   }
+    //   getSearchWidthIngredient();
+
+    closeIcon.addEventListener("click", function(){
+        btnIngredientTag.style.display="none";
+      }); 
+           })
+                        })
+
+
+
+
 btnUstensil.forEach(btn=>{ btn.addEventListener("click", function(){
     console.log(btn.textContent);
     let btnUstensilTag = document.createElement("div")

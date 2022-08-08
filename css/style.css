@@ -149,17 +149,17 @@ margin-right: 40px;
 
 }
 .btn_ingredients{
-margin-top: 5px;
+margin-top: 20px;
 font-size: 15px;
 font-weight: 600;
 background-color:#0d6efd;
 border:none;
 color: #E5E5E5;
 width: 28%;
-height: 20px;
+height: 5px;
 text-align: left;
 margin-left: 10px;
-margin-bottom: 15px;
+margin-bottom: 5px;
 }
 #liste_ustensiles{
     width: 50%;
@@ -170,7 +170,7 @@ margin-bottom: 15px;
  
 }
 .btn_ustensils{
-margin-top: 5px;
+margin-top: 20px;
 font-size: 17px;
 font-weight: 500;
 background-color:#dc3545 ;
@@ -180,7 +180,7 @@ text-align: left;
 margin-left: 10px;
 width: 28%;
 height: 20px;
-margin-bottom: 15px;
+margin-bottom: 10px;
 }
 #liste_appareils{
     width: 50%;
@@ -191,8 +191,8 @@ margin-bottom: 15px;
 
 }
 .btn_appareils{
-margin-top: 5px;
-    margin-bottom: 15px;
+    margin-top: 25px;
+    margin-bottom: 10px;
     font-size: 17px;
     font-weight: 500;
     background-color:#68D9A4 ;
@@ -201,7 +201,7 @@ margin-top: 5px;
     text-align: left;
     margin-left: 10px;
     width: 28%;
-    height: 20px;
+    height: 10px;
     }
 
     #ingredient-search{
@@ -216,7 +216,9 @@ margin-top: 5px;
         color:#fff;
         border-radius: 5px; 
     }
-   
+  button ::placeholder{
+  color:#fff ;
+   }
     #appareil-search{
         width: 180px;
         background-color:#68D9A4 ; 
@@ -280,27 +282,28 @@ margin-top: 5px;
     flex-direction: row;
     justify-content: space-between;
     width: 205px;
-    height: 40px;
+    height: 45px;
     background-color: #0d6efd;
     color:#fff;
     margin-right: 40px;
     font-size: 16px;
     padding-left: 10px;
-    padding-top: 7px;
+    padding-top: 11px;
     border-radius: 5px;
+  
    }
    .btn_Ustensil_tag{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     width: 205px;
-    height: 40px;
+    height: 45px;
     background-color:#dc3545;
     color:#fff;
     margin-right: 40px;
     font-size: 16px;
     padding-left: 10px;
-    padding-top: 5px;
+    padding-top: 8px;
     border-radius: 5px;
 
    }
@@ -309,13 +312,13 @@ margin-top: 5px;
     flex-direction: row;
     justify-content: space-between;
     width: 180px;
-    height: 40px;
+    height: 45px;
     background-color:#68D9A4;
     color:#fff;
     margin-right: 40px;
     font-size: 16px;
     padding-left: 10px;
-    padding-top: 7px;
+    padding-top: 8px;
     border-radius: 5px;
    }
    .close_icon{
@@ -324,8 +327,6 @@ margin-top: 5px;
     filter: invert(1);
     padding-right: 10px;
     padding-bottom: 5px;
-    
-   
    }
    #liste_tag{
 display: flex;

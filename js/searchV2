@@ -6,7 +6,7 @@ searchPrincipal.addEventListener("keyup", function(){
  
     if(searchInput.length >= 3) {
          let newSearchedArray =  recipes.map((recipe) => {
-            if(recipe.name + recipe.description + recipe.ingredients.toLowerCase().includes(searchInput) 
+            if(recipe.toLowerCase().includes(searchInput) 
          ) 
         return newSearchedArray.push(recipe)
         })
