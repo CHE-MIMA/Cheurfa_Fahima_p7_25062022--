@@ -1,4 +1,5 @@
 import {recipes} from "./recipes.js";
+import { displayTags } from "./tag.js";
 
 const btnIgredient = document.getElementById("icon-ingredients");
 const listeIngredient= document.getElementById("liste_ingredients");
@@ -14,7 +15,8 @@ const searchAppareils=document.getElementById("appareil-search")
 const searchUstensils=document.getElementById("ustensil-search")
   
     displayAppareils(recipes);
-    export function displayAppareils(recipes){
+    // displayTags();
+      export function displayAppareils(recipes){
     let allAppareils = []
      for (let index = 0; index < recipes.length; index++) {
      let appareils= recipes[index].appliance;
@@ -31,6 +33,7 @@ const searchUstensils=document.getElementById("ustensil-search")
        }
      
      // Event listener input du filtre appareils
+  
      const searchAppareils=document.getElementById("appareil-search")
         searchAppareils.addEventListener("input", (e) => {
             const value = e.target.value

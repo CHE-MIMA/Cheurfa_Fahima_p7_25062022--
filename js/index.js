@@ -1,3 +1,4 @@
+import { displayAppareils} from "./filters.js";
 import {recipes} from "./recipes.js";
 import {displayTags} from "./tag.js";
 displayRecipes(recipes);
@@ -141,6 +142,7 @@ for (let index = 0; index < recipes.length; index++) {
 
 displayIngredients(newIngredientsList);
 displayUstensils(newUstensilsList);
+displayAppareils(recipes);
 displayTags();
 }
 // on reaffiche le liste ingredient apres le filtres

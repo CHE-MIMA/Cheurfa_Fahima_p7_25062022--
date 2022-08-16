@@ -6,11 +6,18 @@ searchPrincipal.addEventListener("keyup", function(){
  
     if(searchInput.length >= 3) {
          let newSearchedArray =  recipes.map((recipe) => {
-            if(recipe.toLowerCase().includes(searchInput) 
-         ) 
-        return newSearchedArray.push(recipe)
-        })
-        
+            let listeIgred=null;
+            recipe.ingredients.forEach((ingredient)=>{
+            listeIgred+=" "+ingredient;
+         })
+         let listeUsten=null;
+         recipe.ustensils.forEach((ustensil)=>{
+         listeUsten+=" "+ustensil;
+         })
+      
+    return recipe.description+" "+listeIgred+" "+recipe.appareils+" "+listeUsten
+    
+      }) 
         console.log(newSearchedArray)
     } else {
        return newSearchedArray

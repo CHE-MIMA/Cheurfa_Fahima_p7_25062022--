@@ -1,6 +1,7 @@
 import {recipes} from "./recipes.js";
 import {displayRecipes,displayIngredients, displayUstensils} from "./index.js";
 import {displayAppareils,} from "./filters.js";
+import { displayTags } from "./tag.js";
 
 let searchIn = document.getElementById("principal-search");
 searchIn.addEventListener("keyup", function(){
@@ -42,6 +43,7 @@ searchIn.addEventListener("keyup", function(){
  displayAppareils(searchedArray);
  displayIngredients(arrayIngredients);
  displayUstensils(newUstensilsarray);
+ displayTags();
 })
 
 
