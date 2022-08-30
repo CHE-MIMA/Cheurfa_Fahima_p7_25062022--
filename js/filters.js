@@ -82,8 +82,6 @@ const searchUstensils=document.getElementById("ustensil-search")
             searchAppareils.style.width="180px";
             searchAppareils.style.borderRadius="5px";
             buttonAppareils.style.borderRadius="5px";
-        
-    
         }
         else{
             listeAppareils.style.display='block'
