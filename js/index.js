@@ -86,6 +86,15 @@ for (let index = 0; index < recipes.length; index++) {
         }
 }
 
+ //  message "pas de recette disponible"
+ const recipesCard=document.getElementById("card-grid");
+  if(recipesCard.innerHTML== "") {
+    const noRecipesDiv = document.createElement("div")
+    noRecipesDiv.textContent = "Il n'y a pas de recette correspondant à votre recherche."
+    noRecipesDiv.classList.add("noRecipes");
+    recipesCard.appendChild(noRecipesDiv);
+}
+
     //  on filtres la liste ingredients >> Event listener input du filtre ingrédients
     const searchIngredients=document.getElementById("ingredient-search")
     const listeIngredient= document.getElementById("liste_ingredients");
@@ -160,12 +169,6 @@ export function displayIngredients(newIngredientsLists){
         listeUstensils.appendChild(btnUstensiles);  
         }
     }
-    //  message "pas de recette disponible"
- const recipesCard=document.getElementById("card-grid");
- if(recipesCard.innerHTML== "") {
-   const noRecipesDiv = document.createElement("div")
-   noRecipesDiv.textContent = "Il n'y a pas de recette correspondant à votre recherche."
-   noRecipesDiv.classList.add("noRecipes");
-   recipesCard.appendChild(noRecipesDiv);
-}   
+
+      
         
