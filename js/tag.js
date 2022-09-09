@@ -2,7 +2,6 @@ import {recipes} from "./recipes.js";
 import {displayIngredients, displayRecipes, displayUstensils} from "./index.js";
 import { displayAppareils } from "./filters.js";
 
-
 export function displayTags(){
 const btnIngredient = document.querySelectorAll(".btn_ingredients");
 const btnUstensil = document.querySelectorAll(".btn_ustensils");
@@ -28,20 +27,28 @@ closeIcon.setAttribute("src", "./closeIcon.svg")
 closeIcon.classList.add("close_icon")
 btnIngredientTag.appendChild(closeIcon);
 listeTag.appendChild(btnIngredientTag); 
-                           
- recipes.forEach((recipe) => { 
  const recipeCard = document.querySelectorAll('.card');
- recipeCard.forEach(r=>{
+ recipeCard.forEach(r=>{                          
+ recipes.forEach((recipe) => { 
     console.log(r.getAttribute("id"));
     console.log(recipe.id);
+    console.log(r);
+    console.log(recipe.name.toLowerCase().includes(btnIngredientInput.toLowerCase()) );
+    console.log(recipe.description.toLowerCase().includes(btnIngredientInput.toLowerCase()));
+   let isInIngredients = false;
+   recipe.ingredients.forEach((ingredient) => {
+     if(ingredient.ingredient.toLowerCase().includes(btnIngredientInput.toLowerCase())){
+      isInIngredients = true;
+     }
+    })
+
     if(r.getAttribute("id")==recipe.id
      //_______________________________________________          
      &&
-     (recipe.name.toLowerCase().includes(btnIngredientInput) || 
-     recipe.description.toLowerCase().includes(btnIngredientInput)||
-    recipe.ingredients.forEach((ingredient) => {
-    ingredient.ingredient.toLowerCase().includes(btnIngredientInput)})
-    )
+     (recipe.name.toLowerCase().includes(btnIngredientInput.toLowerCase()) || 
+     recipe.description.toLowerCase().includes(btnIngredientInput.toLowerCase())||
+    isInIngredients
+     )
     //_______________________________________________//           
      ){
     ingrArrayTag.push(recipe);               
@@ -50,17 +57,25 @@ listeTag.appendChild(btnIngredientTag);
     })  
      displayRecipes(ingrArrayTag);
     
-
-
 // supression de tags ingredients
-    closeIcon.addEventListener("click", function(){
+    closeIcon.addEventListener("click", function(e){
       const recipeCard = document.querySelectorAll('.card');
-      btnIngredientTag.style.display="none";
+      //btnIngredientTag.style.display="none";
+      let croix = e.target;
+      let btnTag = croix.parentNode;
+      let listeDesTags = btnTag.parentNode;
+      listeDesTags.removeChild(btnTag);
+
       recipeCard.innerHTML='';
-      // displayRecipes(recipes);
-      //  let recupArrayIngr=[];
-      let listeTags=document.querySelectorAll(".btn_ingredient_tag").innerText;
- console.log(listeTags); 
+      let listeTags=document.querySelectorAll(".btn_ingredient_tag");
+      let activeTags=[];
+      listeTags.forEach((currentTag)=> activeTags.push(currentTag.innerText));
+      console.log('avant delete ',activeTags);
+      let deletedTag = e.target.parentNode.innerText;
+      console.log(deletedTag); 
+      activeTags = activeTags.filter(function(currentTag) { return currentTag !== deletedTag })
+      console.log('apres delete ',activeTags);
+
       recipes.forEach((recipe) => { 
          const recipeCard = document.querySelectorAll('.card');
          recipeCard.forEach(r=>{
@@ -70,11 +85,9 @@ listeTag.appendChild(btnIngredientTag);
             if(r.getAttribute("id")==recipe.id
              //_______________________________________________          
              &&
-             (recipe.name.toLowerCase().includes(btnIngredientInput) || 
-             recipe.description.toLowerCase().includes(btnIngredientInput)||
-            recipe.ingredients.forEach((ingredient) => {
-            ingredient.ingredient.toLowerCase().includes(btnIngredientInput)})
-            )
+             (recipe.name.toLowerCase().includes(btnIngredientInput.toLowerCase()) || 
+             recipe.description.toLowerCase().includes(btnIngredientInput.toLowerCase())
+             )
             //_______________________________________________//           
              ){
             ingrArrayTag.push(recipe);               
@@ -83,15 +96,10 @@ listeTag.appendChild(btnIngredientTag);
             else{
                ingrArrayTag.push(recipe);    
             }
-            })
-
-            })  
+            }) })  
              displayRecipes(ingrArrayTag);
-             
-     }); 
- 
-   })                 
-   })
+             }); })       
+            })
     btnUstensil.forEach(btn=>{ btn.addEventListener("click", function(){
         console.log(btn.textContent);
         //_______________________________________________
@@ -106,20 +114,25 @@ listeTag.appendChild(btnIngredientTag);
         closeIcon.classList.add("close_icon")
         btnUstensilTag.appendChild(closeIcon);
         listeTag.appendChild(btnUstensilTag); 
-                                   
+
+        const recipeCard = document.querySelectorAll('.card');
+         recipeCard.forEach(r=>{                           
          recipes.forEach((recipe) => { 
-         const recipeCard = document.querySelectorAll('.card');
-         recipeCard.forEach(r=>{
+
+         let isInUstensils = false;
+         recipe.ustensils.forEach((ustensil) => {
+         if(ustensil.toLowerCase().includes(btnUstensilInput.toLowerCase())){
+            isInUstensils = true;
+         }
+         })
             console.log(r.getAttribute("id"));
             console.log(recipe.id);
             if(r.getAttribute("id")==recipe.id
              //_______________________________________________          
              &&
-             (recipe.name.toLowerCase().includes(btnUstensilInput) || 
-             recipe.description.toLowerCase().includes(btnUstensilInput)||
-            recipe.ingredients.forEach((ingredient) => {
-            ingredient.ingredient.toLowerCase().includes(btnUstensilInput)})
-            )
+             (recipe.name.toLowerCase().includes(btnUstensilInput.toLowerCase()) || 
+             recipe.description.toLowerCase().includes(btnUstensilInput.toLowerCase()) ||
+            isInUstensils)
             //_______________________________________________//           
              ){
             ustensilArrayTag.push(recipe);              
@@ -149,10 +162,11 @@ listeTag.appendChild(btnIngredientTag);
         closeIcon.setAttribute("src", "./closeIcon.svg")
         closeIcon.classList.add("close_icon")
         btnAppareilTag.appendChild(closeIcon);
-        listeTag.appendChild(btnAppareilTag);                        
+        listeTag.appendChild(btnAppareilTag);
+        const recipeCard = document.querySelectorAll('.card');
+         recipeCard.forEach(r=>{                        
          recipes.forEach((recipe) => { 
-         const recipeCard = document.querySelectorAll('.card');
-         recipeCard.forEach(r=>{
+         
             console.log(r.getAttribute("id"));
             console.log(recipe.id);
             if(r.getAttribute("id")==recipe.id
@@ -180,13 +194,3 @@ listeTag.appendChild(btnIngredientTag);
             })                 
             })
     }
-
-
-  
-  
-  
-
-
-
-
-
