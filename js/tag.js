@@ -57,59 +57,59 @@ listeTag.appendChild(btnIngredientTag);
     })  
      displayRecipes(ingrArrayTag);
     
-// // // supression de tags ingredients
-//     closeIcon.addEventListener("click", function(e){
-//       const recipeCard = document.querySelectorAll('.card');
-//       //btnIngredientTag.style.display="none";
-//       let croix = e.target;
-//       let btnTag = croix.parentNode;
-//       let listeDesTags = btnTag.parentNode;
-//       listeDesTags.removeChild(btnTag);
+// // supression de tags ingredients
+    closeIcon.addEventListener("click", function(e){
+      const recipeCard = document.querySelectorAll('.card');
+      //btnIngredientTag.style.display="none";
+      let croix = e.target;
+      let btnTag = croix.parentNode;
+      let listeDesTags = btnTag.parentNode;
+      listeDesTags.removeChild(btnTag);
      
-//       recipeCard.innerHTML='';
-//       let listeTags=document.querySelectorAll(".btn_ingredient_tag");
-//       let activeTags=[];
-//       listeTags.forEach((currentTag)=> activeTags.push(currentTag.innerText));
-//       console.log('avant delete ',activeTags);
-//       let deletedTag = e.target.parentNode.innerText;
-//       console.log(deletedTag); 
-//       activeTags = activeTags.filter(function(currentTag) { return currentTag !== deletedTag })
-//       console.log('apres delete ',activeTags);
+      recipeCard.innerHTML='';
+      let listeTags=document.querySelectorAll(".btn_ingredient_tag");
+      let activeTags=[];
+      listeTags.forEach((currentTag)=> activeTags.push(currentTag.innerText));
+      console.log('avant delete ',activeTags);
+      let deletedTag = e.target.parentNode.innerText;
+      console.log(deletedTag); 
+      activeTags = activeTags.filter(function(currentTag) { return currentTag !== deletedTag })
+      console.log('apres delete ',activeTags);
       
-//       //  listeTags=document.querySelectorAll(".btn_ingredient_tag");
-//       //  console.log(listeTags);
-//       // recipes.forEach((recipe) => { 
-//          // const recipeCard = document.querySelectorAll('.card');
-//          // listeTags.forEach(tag=>{
-//             // console.log(r.getAttribute("id"));
-//             // console.log(recipe.id);
+      //  listeTags=document.querySelectorAll(".btn_ingredient_tag");
+      //  console.log(listeTags);
+      // recipes.forEach((recipe) => { 
+         // const recipeCard = document.querySelectorAll('.card');
+         // listeTags.forEach(tag=>{
+            // console.log(r.getAttribute("id"));
+            // console.log(recipe.id);
            
-//             // if(listeTags!=undefined){
-//             // if(recipe.name.toLowerCase().includes(tag.toLowerCase()) || 
-//             //  recipe.description.toLowerCase().includes(tag.toLowerCase())
-//             //  )
-//             // {
-//              recipes.forEach((recipe) => {
-//                if( recipe.ingredients.every(r=>activeTags.includes(r))||
-//                activeTags.foreach((act) => act.toLowerCase().includes(recipe.name.toLowerCase))||
-//                activeTags.foreach((act) => act.toLowerCase().includes(recipe.description.toLowerCase))){
-//                   ingrArrayTag.push(recipe)
-//                }    
-//             }) 
-// console.log(ingrArrayTag)
-//             //  };
+            // if(listeTags!=undefined){
+            // if(recipe.name.toLowerCase().includes(tag.toLowerCase()) || 
+            //  recipe.description.toLowerCase().includes(tag.toLowerCase())
+            //  )
+            // {
+             recipes.forEach((recipe) => {
+               if( recipe.ingredients.every(r=>activeTags.includes(r))||
+               activeTags.foreach((act) => act.toLowerCase().includes(recipe.name.toLowerCase))||
+               activeTags.foreach((act) => act.toLowerCase().includes(recipe.description.toLowerCase))){
+                  ingrArrayTag.push(recipe)
+               }    
+            }) 
+console.log(ingrArrayTag)
+            //  };
              
-//             // }
-//             // else{
-//             //  ingrArrayTag.push(recipe); 
-//             // }
+            // }
+            // else{
+            //  ingrArrayTag.push(recipe); 
+            // }
            
           
-//              displayRecipes(ingrArrayTag);
+             displayRecipes(ingrArrayTag);
             
-//           })       
-//             })
-//          })
+          })       
+            })
+         })
        
 
 
