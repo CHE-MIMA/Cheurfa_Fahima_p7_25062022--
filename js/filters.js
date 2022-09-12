@@ -58,6 +58,7 @@ const searchUstensils=document.getElementById("ustensil-search")
     btnIgredient.addEventListener('click', function(){
         if( listeIngredient.style.display=='block'){
             listeIngredient.style.display='none'
+        
             btnIgredient.style.transform = "rotate(0deg)";
             buttonIngredients.style.width="180px" ;
             searchIngredients.style.width="180px";

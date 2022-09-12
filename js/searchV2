@@ -15,7 +15,12 @@ searchPrincipal.addEventListener("keyup", function(){
          listeUsten+=" "+ustensil;
          })
       
-    return recipe.description+" "+listeIgred+" "+recipe.appareils+" "+listeUsten
+   let recipesInclude = recipe.name+recipe.description+" "+listeIgred+" "+recipe.appareils+" "+listeUsten;
+   if(recipesInclude.includes(searchInput)){
+      
+      newSearchedArray.push(recipe)
+   }
+   
     
       }) 
         console.log(newSearchedArray)

@@ -65,7 +65,7 @@ listeTag.appendChild(btnIngredientTag);
       let btnTag = croix.parentNode;
       let listeDesTags = btnTag.parentNode;
       listeDesTags.removeChild(btnTag);
-
+     
       recipeCard.innerHTML='';
       let listeTags=document.querySelectorAll(".btn_ingredient_tag");
       let activeTags=[];
@@ -75,34 +75,45 @@ listeTag.appendChild(btnIngredientTag);
       console.log(deletedTag); 
       activeTags = activeTags.filter(function(currentTag) { return currentTag !== deletedTag })
       console.log('apres delete ',activeTags);
-
-      recipes.forEach((recipe) => { 
-         const recipeCard = document.querySelectorAll('.card');
-         recipeCard.forEach(r=>{
+      
+      //  listeTags=document.querySelectorAll(".btn_ingredient_tag");
+      //  console.log(listeTags);
+      // recipes.forEach((recipe) => { 
+         // const recipeCard = document.querySelectorAll('.card');
+         // listeTags.forEach(tag=>{
             // console.log(r.getAttribute("id"));
             // console.log(recipe.id);
-            if(listeTags!=undefined){
-            if(r.getAttribute("id")==recipe.id
-             //_______________________________________________          
-             &&
-             (recipe.name.toLowerCase().includes(deletedTag.toLowerCase()) || 
-             recipe.description.toLowerCase().includes(deletedTag.toLowerCase())
-             )
-            //_______________________________________________//           
-             ){
-            ingrArrayTag.push();               
-             };
-            }
            
-            }) })  
+            // if(listeTags!=undefined){
+            // if(recipe.name.toLowerCase().includes(tag.toLowerCase()) || 
+            //  recipe.description.toLowerCase().includes(tag.toLowerCase())
+            //  )
+            // {
+             recipes.forEach((recipe) => {
+               if( recipe.ingredients.every(r=>activeTags.includes(r))||
+               activeTags.foreach((act) => act.toLowerCase().includes(recipe.name.toLowerCase))||
+               activeTags.foreach((act) => act.toLowerCase().includes(recipe.description.toLowerCase))){
+                  ingrArrayTag.push(recipe)
+               }    
+            }) 
+console.log(ingrArrayTag)
+            //  };
+             
+            // }
+            // else{
+            //  ingrArrayTag.push(recipe); 
+            // }
+           
+          
              displayRecipes(ingrArrayTag);
-             });
+            
           })       
             })
+         })
        
 
 
-            
+
             // console.log(btnAppareil);
             btnAppareil.forEach(btn=>{ btn.addEventListener("click", function(){
                console.log(btn.textContent);
