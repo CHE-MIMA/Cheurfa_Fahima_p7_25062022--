@@ -66,8 +66,8 @@ displayAppareils(recipes);
         else{
             listeIngredient.style.display='block'
             btnIgredient.style.transform = "rotate(180deg)" 
-            buttonIngredients.style.width="735px" 
-            searchIngredients.style.width="734px";
+            buttonIngredients.style.width="730px" 
+            searchIngredients.style.width="730px";
             searchIngredients.style.borderRadius="0px";
             buttonIngredients.style.borderRadius="0px";
             listeAppareils.style.display='none'
