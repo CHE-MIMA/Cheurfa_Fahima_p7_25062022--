@@ -1,6 +1,6 @@
 import {recipes} from "./recipes.js";
 import { displayTags } from "./tag.js";
-
+// variables du dom
 const btnIgredient = document.getElementById("icon-ingredients");
 const listeIngredient= document.getElementById("liste_ingredients");
 const btnUstensiles = document.getElementById("icon-ustensiles");
@@ -13,9 +13,9 @@ const buttonUstensils=document.getElementById("button-ustensils");
 const searchIngredients=document.getElementById("ingredient-search")
 const searchAppareils=document.getElementById("appareil-search")
 const searchUstensils=document.getElementById("ustensil-search")
-  
-    displayAppareils(recipes);
-    // displayTags();
+     
+// fonction qui affiche la liste des appareils 
+displayAppareils(recipes);
       export function displayAppareils(recipes){
     let allAppareils = []
      for (let index = 0; index < recipes.length; index++) {
@@ -31,9 +31,8 @@ const searchUstensils=document.getElementById("ustensil-search")
         btnAppareil.classList.add("btn_appareils");
         document.getElementById("liste_appareils").appendChild(btnAppareil);   
        }
-     
-     // Event listener input du filtre appareils
-  
+
+     // Event listener input qui filtre appareils
      const searchAppareils=document.getElementById("appareil-search")
         searchAppareils.addEventListener("input", (e) => {
             const value = e.target.value
@@ -49,16 +48,15 @@ const searchUstensils=document.getElementById("ustensil-search")
         btnAppareil.textContent= appareil;
         btnAppareil.classList.add("btn_appareils");
         document.getElementById("liste_appareils").appendChild(btnAppareil);  
-        }                       
-                    
+        }                                  
         })
      }
     }
-//    aparaition et desparaition des dropdown au click sur les boutton
+
+//    aparaition et desparaition des dropdown au click sur le boutton ingredients
     btnIgredient.addEventListener('click', function(){
         if( listeIngredient.style.display=='block'){
             listeIngredient.style.display='none'
-        
             btnIgredient.style.transform = "rotate(0deg)";
             buttonIngredients.style.width="180px" ;
             searchIngredients.style.width="180px";
@@ -72,9 +70,21 @@ const searchUstensils=document.getElementById("ustensil-search")
             searchIngredients.style.width="734px";
             searchIngredients.style.borderRadius="0px";
             buttonIngredients.style.borderRadius="0px";
-        }
-      
+            listeAppareils.style.display='none'
+            btnAppareils.style.transform = "rotate(0deg)";
+            buttonAppareils.style.width="180px" ;
+            searchAppareils.style.width="180px";
+            searchAppareils.style.borderRadius="5px";
+            buttonAppareils.style.borderRadius="5px";
+            listeUstensils.style.display='none'
+            btnUstensiles.style.transform = "rotate(0deg)";
+            buttonUstensils.style.width="180px" ;
+            searchUstensils.style.width="180px";
+            searchUstensils.style.borderRadius="5px";
+            buttonUstensils.style.borderRadius="5px";
+        } 
     });
+    //    aparaition et desparaition des dropdown au click sur le boutton appareils
     btnAppareils.addEventListener('click', function(){
         if( listeAppareils.style.display=='block'){
             listeAppareils.style.display='none'
@@ -91,10 +101,21 @@ const searchUstensils=document.getElementById("ustensil-search")
             searchAppareils.style.width="730px";
             searchAppareils.style.borderRadius="0px";
             buttonAppareils.style.borderRadius="0px";
-        }
-       
+            listeIngredient.style.display='none'
+            btnIgredient.style.transform = "rotate(0deg)";
+            buttonIngredients.style.width="180px" ;
+            searchIngredients.style.width="180px";
+            searchIngredients.style.borderRadius="5px";
+            buttonIngredients.style.borderRadius="5px";
+            listeUstensils.style.display='none'
+            btnUstensiles.style.transform = "rotate(0deg)";
+            buttonUstensils.style.width="180px" ;
+            searchUstensils.style.width="180px";
+            searchUstensils.style.borderRadius="5px";
+            buttonUstensils.style.borderRadius="5px";
+        } 
     });
-    
+    //    aparaition et desparaition des dropdown au click sur le boutton ustensils
     btnUstensiles.addEventListener('click', function(){
         if( listeUstensils.style.display=='block'){
             listeUstensils.style.display='none'
@@ -111,10 +132,22 @@ const searchUstensils=document.getElementById("ustensil-search")
             buttonUstensils.style.borderRadius="0px";
             buttonUstensils.style.width="730px";
             searchUstensils.style.width="730px";
+            listeAppareils.style.display='none'
+            btnAppareils.style.transform = "rotate(0deg)";
+            buttonAppareils.style.width="180px" ;
+            searchAppareils.style.width="180px";
+            searchAppareils.style.borderRadius="5px";
+            buttonAppareils.style.borderRadius="5px";
+            listeIngredient.style.display='none'
+            btnIgredient.style.transform = "rotate(0deg)";
+            buttonIngredients.style.width="180px" ;
+            searchIngredients.style.width="180px";
+            searchIngredients.style.borderRadius="5px";
+            buttonIngredients.style.borderRadius="5px";
         }
-      
     });
-    
+   
+   
     
     
     

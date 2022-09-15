@@ -1,5 +1,5 @@
-import { displayAppareils} from "./filters.js";
 import {recipes} from "./recipes.js";
+import { displayAppareils} from "./filters.js";
 import {displayTags} from "./tag.js";
 displayRecipes(recipes);
 // console.log(recipes);
