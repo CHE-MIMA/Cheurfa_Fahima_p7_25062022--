@@ -101,8 +101,7 @@ color: black;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 6; 
     text-overflow: ellipsis;
-    overflow: hidden;
-    
+    overflow: hidden;   
 }
 .icon-time{
     width: 18px;
@@ -122,7 +121,6 @@ color: black;
 }
 .div-ingredients{
     display: flex;
-
 }
 .quantity-ingredients{
     font-size: 14px;
@@ -133,7 +131,6 @@ color: black;
     font-size: 14px;
     font-weight: 600; 
 }
-
 .div-title_quantity{
 margin-top: 10px;
 margin-left: 10px;
@@ -154,8 +151,6 @@ margin-right: 40px;
     background-color:#0d6efd; 
     display: none; 
     margin-left: -2px;
-    
-
 }
 .btn_ingredients{
 margin-top: 20px;
@@ -175,7 +170,6 @@ margin-bottom: 5px;
     background-color:#dc3545; 
     display: none;
     margin-left: 414px;
- 
 }
 .btn_ustensils{
 margin-top: 20px;
@@ -209,43 +203,47 @@ margin-bottom: 10px;
     width: 28%;
     height: 10px;
     }
-
     #ingredient-search{
         width: 180px;
         font-size: 18px;
-        font-weight: 500;
+        font-weight: 400;
         border: none;
         height: 60px;
         margin-left: -2px;
         padding-left: 10px;
         background-color: #0d6efd;
-        color:white;
         border-radius: 5px; 
     }
-  
+    #ingredient-search::placeholder{
+        color:white;
+    }
     #appareil-search{
         width: 180px;
         background-color:#68D9A4 ; 
-        color:white;
         font-size: 18px;
-        font-weight: 500;
+        font-weight: 400;
         border: none;
         height: 60px;
         margin-left: -2px;
         padding-left: 10px;  
         border-radius: 5px; 
     }
+    #appareil-search::placeholder{
+        color:white;
+    }
     #ustensil-search{
         width: 178px;
         background-color: #dc3545; 
-        color:white;
         font-size: 18px;
-        font-weight: 500;
+        font-weight: 400;
         border: none;
         height: 60px; 
         margin-left: -2px;
         padding-left: 10px;  
         border-radius: 5px;
+    }
+    #ustensil-search::placeholder{
+        color:white;
     }
     #button-ingredients{
         width: 180px;
@@ -269,8 +267,7 @@ margin-bottom: 10px;
         border-radius: 5px;
         background-color:#dc3545;
         height: 60px; 
-        margin-right: 1000px;
-        
+        margin-right: 1000px;    
     }
    .icon-bas{
     margin-left: 80%;
