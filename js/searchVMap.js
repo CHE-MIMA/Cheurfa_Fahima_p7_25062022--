@@ -1,14 +1,13 @@
 import {recipes} from "./recipes.js";
-import {displayRecipes,displayIngredients, displayUstensils} from "./index.js";
-import {displayAppareils,} from "./filters.js";
-import { displayTags } from "./tag.js";
+import {displayRecipes} from "./index.js";
+
 let searchPrincipal = document.getElementById("principal-search");
+
 console.log(searchPrincipal);
+
 searchPrincipal.addEventListener("keyup", function(){
     let searchInput= searchPrincipal.value;
     let newSearchedArray=[]
-    
-  
     if(searchInput.length >= 3) {
       newSearchedArray= recipes.map((recipe)=> {
           
@@ -25,22 +24,21 @@ searchPrincipal.addEventListener("keyup", function(){
       
    let recipesInclude = recipe.name+recipe.description+" "+listeIgred+" "+recipe.appareils+" "+listeUsten;
    if(recipesInclude.includes(searchInput)){
-
+      document.getElementById("card-grid").innerHTML="";
       newSearchedArray.push(recipe)
+      displayRecipes(newSearchedArray);
+  
    }
    console.log(newSearchedArray);
     
       }) 
      
     } else {
-      // displayRecipes(recipes);
+      displayRecipes(recipes);
     }
-    document.getElementById("card-grid").innerHTML='';
- displayRecipes(newSearchedArray);
- displayAppareils(newSearchedArray);
- displayIngredients(newSearchedArray);
- displayUstensils(newSearchedArray);
- displayTags();
+  
+ 
+
 })
 
 

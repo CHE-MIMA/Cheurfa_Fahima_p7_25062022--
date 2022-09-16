@@ -1,9 +1,12 @@
+
 import {recipes} from "./recipes.js";
 import { displayAppareils} from "./filters.js";
 import {displayTags} from "./tag.js";
+
+
 displayRecipes(recipes);
-// console.log(recipes);
  export function displayRecipes(recipes){
+
 //  on crée une nouveau tableau d'ingrédients pour effacer les doublons
 let newIngredientsList=new Set();
 // on crée un nouveau tableau ustensils pour eviter des doublons 
@@ -12,9 +15,13 @@ let  newUstensilsList= new Set();
 // on boucle sur recipes pour recupérer les tableaux ingredients et ustensils
 const main = document.getElementById("card-grid");
 main.innerHTML="";
-for (let index = 0; index < recipes.length; index++) {
-    let ingredientsTb = recipes[index].ingredients;
-    let ustensilsTb = recipes[index].ustensils;
+
+for (let index = 0; index < recipes.length; index++){
+    console.log(recipes);
+    
+    let  recipesI = recipes[index];
+    let ingredientsTb = recipesI.ingredients;
+    let ustensilsTb = recipesI.ustensils;
 
 //  alimentation des recettes dans la div card 
     const divCard = document.createElement("div")
@@ -42,7 +49,7 @@ for (let index = 0; index < recipes.length; index++) {
     ingredientsDiv.classList.add("div-ingredients")
     const titleQantityDiv = document.createElement("div");
     titleQantityDiv.classList.add("div-title_quantity")
-
+    
 
 // on boucle sur le tableau des ingredients  
     for (let index = 0; index < ingredientsTb.length; index++){
@@ -84,8 +91,8 @@ for (let index = 0; index < recipes.length; index++) {
         for (let index = 0; index < ustensilsTb.length; index++){
             newUstensilsList.add(ustensilsTb[index].toLowerCase());         
         }
-}
 
+}
  //  message "pas de recette disponible"
  const recipesCard=document.getElementById("card-grid");
   if(recipesCard.innerHTML== "") {
@@ -139,12 +146,14 @@ for (let index = 0; index < recipes.length; index++) {
         document.getElementById("liste_ustensiles").appendChild(btnUstensiles);  
         }
     }) 
-
+  
 displayIngredients(newIngredientsList);
 displayUstensils(newUstensilsList);
 displayAppareils(recipes);
 displayTags();
+
 }
+
 // on reaffiche le liste ingredient apres le filtres
 export function displayIngredients(newIngredientsLists){
     const listeIngredient=document.getElementById("liste_ingredients");

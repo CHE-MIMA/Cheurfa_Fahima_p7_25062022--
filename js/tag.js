@@ -89,14 +89,8 @@ listeTag.appendChild(btnIngredientTag);
             //  recipe.description.toLowerCase().includes(tag.toLowerCase())
             //  )
             // {
-             recipes.forEach((recipe) => {
-               if( recipe.ingredients.every(r=>activeTags.includes(r))||
-               activeTags.foreach((act) => act.toLowerCase().includes(recipe.name.toLowerCase))||
-               activeTags.foreach((act) => act.toLowerCase().includes(recipe.description.toLowerCase))){
-                  ingrArrayTag.push(recipe)
-               }    
-            }) 
-console.log(ingrArrayTag)
+             
+// console.log(ingrArrayTag)
             //  };
              
             // }
@@ -105,7 +99,7 @@ console.log(ingrArrayTag)
             // }
            
           
-             displayRecipes(ingrArrayTag);
+            //  displayRecipes(ingrArrayTag);
             
           })       
             })
