@@ -39,12 +39,12 @@ searchIn.addEventListener("keyup", function(){
             newUstensilsarray.add(recipe.ustensils[index].toLowerCase());         
         } })
     // console.log(newUstensilsarray);      
- displayRecipes(searchedArray);
+ displayRecipes(searchedArray)});
  displayAppareils(searchedArray);
  displayIngredients(arrayIngredients);
  displayUstensils(newUstensilsarray);
  displayTags();
-})
+
 
 
 

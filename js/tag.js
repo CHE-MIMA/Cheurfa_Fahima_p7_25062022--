@@ -1,3 +1,4 @@
+
 import {recipes} from "./recipes.js";
 import {displayIngredients, displayRecipes, displayUstensils} from "./index.js";
 import { displayAppareils } from "./filters.js";
@@ -14,10 +15,10 @@ let appareilArrayTag = [];
 let ustensilArrayTag = [];
 
  btnIngredient.forEach(btn=>{ btn.addEventListener("click", function(){
-console.log(btn.textContent);
+//console.log(btn.textContent);
 //_______________________________________________
  let btnIngredientInput= btn.innerText;
-console.log( btnIngredientInput);
+//console.log( btnIngredientInput);
  //_______________________________________________
  let btnIngredientTag = document.createElement("div")
 btnIngredientTag.innerText = btn.textContent;
@@ -28,13 +29,9 @@ closeIcon.classList.add("close_icon")
 btnIngredientTag.appendChild(closeIcon);
 listeTag.appendChild(btnIngredientTag); 
  const recipeCard = document.querySelectorAll('.card');
+ console.log('recipeCard ',recipeCard);
  recipeCard.forEach(r=>{                          
  recipes.forEach((recipe) => { 
-    console.log(r.getAttribute("id"));
-    console.log(recipe.id);
-    console.log(r);
-    console.log(recipe.name.toLowerCase().includes(btnIngredientInput.toLowerCase()) );
-    console.log(recipe.description.toLowerCase().includes(btnIngredientInput.toLowerCase()));
    let isInIngredients = false;
    recipe.ingredients.forEach((ingredient) => {
      if(ingredient.ingredient.toLowerCase().includes(btnIngredientInput.toLowerCase())){
@@ -42,69 +39,30 @@ listeTag.appendChild(btnIngredientTag);
      }
     })
 
-    if(r.getAttribute("id")==recipe.id
-     //_______________________________________________          
-     &&
-     (recipe.name.toLowerCase().includes(btnIngredientInput.toLowerCase()) || 
-     recipe.description.toLowerCase().includes(btnIngredientInput.toLowerCase())||
-    isInIngredients
-     )
-    //_______________________________________________//           
-     ){
+    if(r.getAttribute("id")==recipe.id ){
+ if(isInIngredients){
     ingrArrayTag.push(recipe);               
      };
+
+    }
+    
     })
     })  
      displayRecipes(ingrArrayTag);
     
 // // supression de tags ingredients
     closeIcon.addEventListener("click", function(e){
-      const recipeCard = document.querySelectorAll('.card');
-      //btnIngredientTag.style.display="none";
+
       let croix = e.target;
       let btnTag = croix.parentNode;
       let listeDesTags = btnTag.parentNode;
       listeDesTags.removeChild(btnTag);
-     
-      recipeCard.innerHTML='';
-      let listeTags=document.querySelectorAll(".btn_ingredient_tag");
-      let activeTags=[];
-      listeTags.forEach((currentTag)=> activeTags.push(currentTag.innerText));
-      console.log('avant delete ',activeTags);
-      let deletedTag = e.target.parentNode.innerText;
-      console.log(deletedTag); 
-      activeTags = activeTags.filter(function(currentTag) { return currentTag !== deletedTag })
-      console.log('apres delete ',activeTags);
-      
-      //  listeTags=document.querySelectorAll(".btn_ingredient_tag");
-      //  console.log(listeTags);
-      // recipes.forEach((recipe) => { 
-         // const recipeCard = document.querySelectorAll('.card');
-         // listeTags.forEach(tag=>{
-            // console.log(r.getAttribute("id"));
-            // console.log(recipe.id);
-           
-            // if(listeTags!=undefined){
-            // if(recipe.name.toLowerCase().includes(tag.toLowerCase()) || 
-            //  recipe.description.toLowerCase().includes(tag.toLowerCase())
-            //  )
-            // {
-             recipes.forEach((recipe) => {
-               if( recipe.ingredients.every(r=>activeTags.includes(r))||
-               activeTags.foreach((act) => act.toLowerCase().includes(recipe.name.toLowerCase))||
-               activeTags.foreach((act) => act.toLowerCase().includes(recipe.description.toLowerCase))){
-                  ingrArrayTag.push(recipe)
-               }    
-            }) 
-console.log(ingrArrayTag)
-            //  };
-             
-            // }
-            // else{
-            //  ingrArrayTag.push(recipe); 
-            // }
-           
-          
+
+
+ingrArrayTag = displayRecipeByRemovedTag();// appel a la fonction d'affichage des recettes suite a suppression d'un tag
+
+//console.log(ingrArrayTag)
+        
              displayRecipes(ingrArrayTag);
             
           })       
@@ -112,14 +70,60 @@ console.log(ingrArrayTag)
          })
        
 
+function displayRecipeByRemovedTag(){
 
+      const recipeCard = document.querySelectorAll('.card');
+       recipeCard.innerHTML='';
+let listeTags=document.querySelectorAll(".btn_ingredient_tag"); // les tags ingredients
+
+let listeTagsUstensil =document.querySelectorAll(".btn_Ustensil_tag"); // les tags ustensiles
+let listeTagsAppareils =document.querySelectorAll(".btn_appareils_tag"); // les tags appareils
+
+let ingrArrayTag = [];
+let activeTags=[];
+      listeTags.forEach((currentTag)=> activeTags.push(currentTag.innerText));
+
+      listeTagsUstensil.forEach((currentTag)=> activeTags.push(currentTag.innerText));
+      listeTagsAppareils.forEach((currentTag)=> activeTags.push(currentTag.innerText));
+
+    
+
+             recipes.forEach((recipe) => {
+               if(activeTags.length==0){
+               ingrArrayTag.push(recipe)
+               }else{
+                  let recipeGlobal = [];
+                  recipe.ingredients.forEach((recipeIngr) => {
+                  recipeGlobal.push(recipeIngr.ingredient.toLowerCase());
+                 })  
+
+                  recipe.ustensils.forEach((recipeUst) => {
+                  recipeGlobal.push(recipeUst.toLowerCase());
+                 })      
+
+                  recipeGlobal.push(recipe.appliance.toLowerCase());
+                  recipeGlobal.push(recipe.name.toLowerCase());
+                  recipeGlobal.push(recipe.description.toLowerCase());
+                  
+
+                  console.log('recipeGlobal ',recipeGlobal);
+
+              if( activeTags.every(r =>recipeGlobal.includes(r))){
+                  ingrArrayTag.push(recipe)
+               }  
+               }
+               
+
+            }) 
+            return ingrArrayTag;
+}
 
             // console.log(btnAppareil);
             btnAppareil.forEach(btn=>{ btn.addEventListener("click", function(){
-               console.log(btn.textContent);
+          //     console.log(btn.textContent);
                //_______________________________________________
                 let btnAppareilInput= btn.innerText;
-               console.log( btnAppareilInput);
+           //    console.log( btnAppareilInput);
                 //_______________________________________________
                 let btnAppareilTag = document.createElement("div")
                btnAppareilTag.innerText = btn.textContent;
@@ -133,15 +137,14 @@ console.log(ingrArrayTag)
                 recipeCard.forEach(r=>{                        
                 recipes.forEach((recipe) => { 
                 
-                   console.log(r.getAttribute("id"));
-                   console.log(recipe.id);
+         //          console.log(r.getAttribute("id"));
+           //        console.log(recipe.id);
                    if(r.getAttribute("id")==recipe.id
                     //_______________________________________________          
                     &&
                     (recipe.name.toLowerCase().includes(btnAppareilInput) || 
                     recipe.description.toLowerCase().includes(btnAppareilInput)||
-                   recipe.ingredients.forEach((ingredient) => {
-                   ingredient.ingredient.toLowerCase().includes(btnAppareilInput)})
+                    recipe.appliance.toLowerCase().includes(btnAppareilInput)
                    )
                    //_______________________________________________//           
                     ){
@@ -155,42 +158,13 @@ console.log(ingrArrayTag)
                       //  supression tags appareils
                       
             closeIcon.addEventListener("click", function(e){
-             const recipeCard = document.querySelectorAll('.card');
-         
+            // const recipeCard = document.querySelectorAll('.card');
+       
              let croix = e.target;
              let btnTag = croix.parentNode;
              let listeDesTags = btnTag.parentNode;
              listeDesTags.removeChild(btnTag);
-       
-             recipeCard.innerHTML='';
-             let listeTags=document.querySelectorAll(".btn_appareils_tag");
-             let activeTags=[];
-             listeTags.forEach((currentTag)=> activeTags.push(currentTag.innerText));
-             console.log('avant delete ',activeTags);
-             let deletedTag = e.target.parentNode.innerText;
-             console.log(deletedTag); 
-             activeTags = activeTags.filter(function(currentTag) { return currentTag !== deletedTag })
-             console.log('apres delete ',activeTags);
-       
-             recipes.forEach((recipe) => { 
-                const recipeCard = document.querySelectorAll('.card');
-                recipeCard.forEach(r=>{
-                   // console.log(r.getAttribute("id"));
-                   // console.log(recipe.id);
-                   if(listeTags!=undefined){
-                   if(r.getAttribute("id")==recipe.id
-                    //_______________________________________________          
-                    &&
-                    (recipe.name.toLowerCase().includes(deletedTag.toLowerCase()) || 
-                    recipe.description.toLowerCase().includes(deletedTag.toLowerCase())
-                    )
-                   //_______________________________________________//           
-                    ){
-                   appareilArrayTag.push();               
-                    };
-                   }
-                  
-                   }) })  
+                   appareilArrayTag = displayRecipeByRemovedTag(); // appel a la fonction d'affichage des recettes suite a suppression d'un tag
                     displayRecipes(appareilArrayTag);
                     });
                  })       
@@ -201,10 +175,10 @@ console.log(ingrArrayTag)
 
 
              btnUstensil.forEach(btn=>{ btn.addEventListener("click", function(){
-               console.log(btn.textContent);
+       //        console.log(btn.textContent);
                //_______________________________________________
                 let btnUstensilInput= btn.innerText;
-               console.log( btnUstensilInput);
+        //       console.log( btnUstensilInput);
                 //_______________________________________________
                 let btnUstensilTag = document.createElement("div")
                btnUstensilTag.innerText = btn.textContent;
@@ -241,52 +215,23 @@ console.log(ingrArrayTag)
                    }) 
                     displayRecipes(ustensilArrayTag)
        
-       
-       
+            
        
        
                    //  supression tags ustensiles
-               
+              
             closeIcon.addEventListener("click", function(e){
-             const recipeCard = document.querySelectorAll('.card');
-         
+           //  const recipeCard = document.querySelectorAll('.card');
              let croix = e.target;
              let btnTag = croix.parentNode;
              let listeDesTags = btnTag.parentNode;
              listeDesTags.removeChild(btnTag);
-       
-             recipeCard.innerHTML='';
-             let listeTags=document.querySelectorAll(".btn_Ustensil_tag");
-             let activeTags=[];
-             listeTags.forEach((currentTag)=> activeTags.push(currentTag.innerText));
-             console.log('avant delete ',activeTags);
-             let deletedTag = e.target.parentNode.innerText;
-             console.log(deletedTag); 
-             activeTags = activeTags.filter(function(currentTag) { return currentTag !== deletedTag })
-             console.log('apres delete ',activeTags);
-       
-             recipes.forEach((recipe) => { 
-                const recipeCard = document.querySelectorAll('.card');
-                recipeCard.forEach(r=>{
-                   // console.log(r.getAttribute("id"));
-                   // console.log(recipe.id);
-                   if(listeTags!=undefined){
-                   if(r.getAttribute("id")==recipe.id
-                    //_______________________________________________          
-                    &&
-                    (recipe.name.toLowerCase().includes(deletedTag.toLowerCase()) || 
-                    recipe.description.toLowerCase().includes(deletedTag.toLowerCase())
-                    )
-                   //_______________________________________________//           
-                    ){
-                   ustensilArrayTag.push();               
-                    };
-                   }
-                  
-                   }) })  
-                    displayRecipes(ustensilArrayTag);
-                    });
-                 })       
-                   })
-         }
-      
+                  ustensilArrayTag = displayRecipeByRemovedTag();
+                   displayRecipes(ustensilArrayTag)
+                  });
+               })
+            })       
+    
+ 
+            }
+                   
