@@ -1,7 +1,6 @@
 import {recipes} from "./recipes.js";
 import {displayRecipes,displayIngredients, displayUstensils} from "./index.js";
-import {displayAppareils,} from "./filters.js";
-import { displayTags } from "./tag.js";
+
 
 let searchIn = document.getElementById("principal-search");
 // function qui affiche les recettes a l'ajout de 3 caractère 

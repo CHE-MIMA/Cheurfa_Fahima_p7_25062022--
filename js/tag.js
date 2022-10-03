@@ -135,8 +135,6 @@ let activeTags=[];
                 recipeCard.forEach(r=>{                        
                 recipes.forEach((recipe) => { 
                 
-         //          console.log(r.getAttribute("id"));
-           //        console.log(recipe.id);
                    if(r.getAttribute("id")==recipe.id
                     //_______________________________________________          
                     &&
