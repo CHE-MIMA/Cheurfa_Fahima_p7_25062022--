@@ -4,46 +4,41 @@ import {displayAppareils,} from "./filters.js";
 import { displayTags } from "./tag.js";
 
 let searchIn = document.getElementById("principal-search");
+// function qui affiche les recettes a l'ajout de 3 caractère 
 searchIn.addEventListener("keyup", function(){
     let searchInput= searchIn.value;
     let searchedArray = []
+    let tabIngredients = [];
     if(searchInput.length >= 3) {
-        recipes.forEach((recipe) => {
+        // utulisation de boucle for  sur le tableau des recettes
+        for (let index = 0; index < recipes.length; index++) {
+            const recipe = recipes[index];
+            for (let index2 = 0; index2 < recipe.ingredients.length; index2++) {
+                tabIngredients.push(recipe.ingredients[index2].ingredient.toLowerCase());
+            }
+            // on verifie si la recherche est presente dans le nom
             if(recipe.name.toLowerCase().includes(searchInput) || 
-            recipe.description.toLowerCase().includes(searchInput) 
-            ||
-            recipe.ingredients.forEach((ingredient) => {
-                ingredient.ingredient.toLowerCase().includes(searchInput)
-            
-         })
+               // si elle est presente dans la description  
+            recipe.description.toLowerCase().includes(searchInput) ||        
+              // si elle est presente dans ingredients
+            tabIngredients.includes(searchInput)
+        // })
+      
         ){
-        searchedArray.push(recipe)
+            searchedArray.push(recipe);
         }
-        })
-        // console.log(searchedArray)
-    } else {
-        searchedArray = recipes;
-    }
-    let arrayIngredients=[];
+        
+        }
+     } else {
+            searchedArray = recipes;
+        }
+        // on vide le tableau precident pour afficher le nouveau
     document.getElementById("card-grid").innerHTML='';
-    searchedArray.forEach((recipe)=>{
-        recipe.ingredients.forEach((ingredient)=>{
-          arrayIngredients.push(ingredient.ingredient.toLowerCase())
-        })
-    })
-    let arrayUstensils=[];
-    document.getElementById("card-grid").innerHTML='';
-    let newUstensilsarray= new Set(arrayUstensils)
-    searchedArray.forEach((recipe)=>{
-        for (let index = 0; index < recipe.ustensils.length; index++){
-            newUstensilsarray.add(recipe.ustensils[index].toLowerCase());         
-        } })
     // console.log(newUstensilsarray);      
- displayRecipes(searchedArray)});
- displayAppareils(searchedArray);
- displayIngredients(arrayIngredients);
- displayUstensils(newUstensilsarray);
- displayTags();
+ displayRecipes(searchedArray)
+ 
+});
+
 
 
 

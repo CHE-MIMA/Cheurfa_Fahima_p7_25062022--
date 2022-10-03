@@ -85,9 +85,6 @@ let activeTags=[];
 
       listeTagsUstensil.forEach((currentTag)=> activeTags.push(currentTag.innerText));
       listeTagsAppareils.forEach((currentTag)=> activeTags.push(currentTag.innerText));
-
-    
-
              recipes.forEach((recipe) => {
                if(activeTags.length==0){
                ingrArrayTag.push(recipe)
@@ -110,6 +107,7 @@ let activeTags=[];
 
               if( activeTags.every(r =>recipeGlobal.includes(r))){
                   ingrArrayTag.push(recipe)
+                  
                }  
                }
                
